@@ -1,0 +1,68 @@
+/* ============================================================
+   STARTRADER — design tokens (source of truth)
+   Do not introduce off-brand colors.
+   ============================================================ */
+:root {
+  /* Core */
+  --navy-900: #06061f; /* deepest background */
+  --navy-800: #0d0d4b; /* primary anchor */
+  --navy-700: #001489; /* deep blue */
+  --ink: #1c1f2a; /* near-black panel base */
+  --gray: #50555b; /* cool gray, muted UI */
+
+  /* Accents */
+  --cyan: #16e9d7; /* signature accent — court lights / live data */
+  --blue: #0047bb; /* electric blue — secondary accent */
+
+  /* Conference accents (used only for the East vs West face-off scene,
+     per the supplied design: East = electric blue, West = arena red) */
+  --east: #2e7bff;
+  --west: #e23c4e;
+
+  /* Premium metallics */
+  --bronze: #ac7c59; /* champion / 1st place */
+  --bronze-hi: #e6c9a8; /* bronze specular highlight */
+  --silver: #a0a8ae; /* 2nd place */
+  --sand: #dfc5ae; /* warm neutral, sparingly */
+
+  /* Text */
+  --text: #dae3ed; /* primary text on dark */
+  --text-mute: #8a93b0; /* captions, secondary */
+
+  /* ---- Derived / utility (composed only from brand values) ---- */
+  --glass-bg: rgba(13, 13, 75, 0.28);
+  --glass-stroke: rgba(22, 233, 215, 0.18);
+  --glass-stroke-strong: rgba(22, 233, 215, 0.42);
+  --panel-base: rgba(28, 31, 42, 0.55);
+  --cyan-glow: rgba(22, 233, 215, 0.55);
+  --blue-glow: rgba(0, 71, 187, 0.55);
+
+  /* Type families — Plus Jakarta Sans is the single typeface across the
+     whole site. The "mono" token is kept as an alias (used by HUD labels
+     for their letter-spacing/uppercase styling) but now also resolves to
+     Plus Jakarta so no text falls outside the brand face. */
+  --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+  /* Type scale (fluid) */
+  --fs-display: clamp(2.5rem, 6.2vw, 5.1rem);
+  --fs-h2: clamp(1.9rem, 4.4vw, 3.25rem);
+  --fs-lead: clamp(1.05rem, 1.9vw, 1.4rem);
+  --fs-body: clamp(1rem, 1.4vw, 1.125rem);
+  --fs-label: clamp(0.68rem, 1vw, 0.78rem);
+
+  /* Spacing rhythm */
+  --section-pad: clamp(4rem, 9vw, 8rem);
+  --gutter: clamp(1.25rem, 5vw, 3rem);
+  --maxw: 1200px;
+
+  /* Radii */
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 22px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}

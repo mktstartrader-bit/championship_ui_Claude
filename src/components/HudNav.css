@@ -1,0 +1,219 @@
+.hud {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 1rem var(--gutter);
+  background: linear-gradient(180deg, rgba(6, 6, 31, 0.5), transparent);
+  border-bottom: 1px solid transparent;
+  transition: padding 0.3s var(--ease-out), background 0.3s var(--ease-out),
+    border-color 0.3s var(--ease-out);
+}
+.hud.is-scrolled {
+  padding: 0.6rem var(--gutter);
+  background: linear-gradient(180deg, rgba(6, 6, 31, 0.9), rgba(6, 6, 31, 0.55));
+  backdrop-filter: blur(14px) saturate(120%);
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
+  border-bottom: 1px solid var(--glass-stroke);
+}
+
+.hud__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.hud__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  min-width: 0;
+}
+
+.hud__logo {
+  height: 26px;
+  width: auto;
+}
+
+.hud__lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hud__wordmark {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  white-space: nowrap;
+}
+.hud__wordmark-accent {
+  color: var(--cyan);
+  text-shadow: 0 0 14px rgba(22, 233, 215, 0.5);
+}
+
+/* Center nav links */
+.hud__nav {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+.hud__link {
+  position: relative;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-mute);
+  transition: color 0.2s var(--ease-out);
+}
+.hud__link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 1px;
+  background: var(--cyan);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s var(--ease-out);
+}
+.hud__link:hover {
+  color: var(--text);
+}
+.hud__link:hover::after {
+  transform: scaleX(1);
+}
+
+.hud__right {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+/* Animated equalizer cluster — "live signal" texture */
+.hud__eq {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 16px;
+}
+.hud__eq i {
+  width: 3px;
+  background: var(--cyan);
+  border-radius: 2px;
+  animation: eq-bounce 1.1s ease-in-out infinite;
+}
+.hud__eq i:nth-child(1) {
+  height: 40%;
+  animation-delay: 0s;
+}
+.hud__eq i:nth-child(2) {
+  height: 100%;
+  animation-delay: 0.2s;
+}
+.hud__eq i:nth-child(3) {
+  height: 60%;
+  animation-delay: 0.4s;
+}
+.hud__eq i:nth-child(4) {
+  height: 80%;
+  animation-delay: 0.1s;
+}
+@keyframes eq-bounce {
+  0%,
+  100% {
+    transform: scaleY(0.4);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+.hud__divider {
+  width: 1px;
+  height: 20px;
+  background: var(--glass-stroke-strong);
+}
+
+.hud__tag {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-mute);
+  white-space: nowrap;
+}
+
+.hud__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid var(--glass-stroke-strong);
+  background: rgba(22, 233, 215, 0.06);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  color: var(--text);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.hud__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 8px var(--cyan-glow);
+  animation: hud-pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes hud-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 6px var(--cyan-glow);
+  }
+  50% {
+    opacity: 0.45;
+    box-shadow: 0 0 14px var(--cyan-glow);
+  }
+}
+
+/* Hide center nav on tablet and below */
+@media (max-width: 900px) {
+  .hud__nav {
+    display: none;
+  }
+}
+
+/* Hide the secondary tag + status text on very small screens */
+@media (max-width: 560px) {
+  .hud__divider,
+  .hud__tag,
+  .hud__eq {
+    display: none;
+  }
+  .hud__status-text {
+    display: none;
+  }
+  .hud__status {
+    padding: 0.4rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hud__dot,
+  .hud__eq i {
+    animation: none;
+  }
+}

@@ -1,0 +1,347 @@
+.claim {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* ===========================================================
+   Stage ambience: spotlight, smoke, confetti, reflective floor
+   =========================================================== */
+.claim__stage {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Top spotlight cone */
+.claim__spotlight {
+  position: absolute;
+  top: -8%;
+  left: 50%;
+  width: 70%;
+  height: 80%;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, rgba(22, 233, 215, 0.22), transparent 70%);
+  clip-path: polygon(42% 0, 58% 0, 100% 100%, 0 100%);
+  filter: blur(6px);
+}
+
+/* Reflective floor */
+.claim__floor {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 30%;
+  background:
+    linear-gradient(180deg, transparent, rgba(22, 233, 215, 0.06)),
+    radial-gradient(60% 90% at 50% 100%, rgba(0, 71, 187, 0.25), transparent 70%);
+  border-top: 1px solid rgba(22, 233, 215, 0.12);
+}
+
+/* Smoke plumes at the base */
+.claim__smoke {
+  position: absolute;
+  bottom: -4%;
+  width: 42%;
+  height: 36%;
+  background: radial-gradient(closest-side, rgba(120, 200, 220, 0.16), transparent 72%);
+  filter: blur(18px);
+  animation: claim-smoke 9s ease-in-out infinite alternate;
+}
+.claim__smoke--l {
+  left: -6%;
+}
+.claim__smoke--r {
+  right: -6%;
+  animation-delay: 1.5s;
+}
+@keyframes claim-smoke {
+  0% {
+    transform: translateX(0) scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(6%) scale(1.12);
+    opacity: 0.9;
+  }
+}
+
+/* Confetti */
+.claim__confetti {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.claim__confetti-bit {
+  position: absolute;
+  top: -6%;
+  border-radius: 1px;
+  opacity: 0;
+  animation-name: claim-confetti;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.claim__confetti-bit--cyan {
+  background: var(--cyan);
+}
+.claim__confetti-bit--blue {
+  background: #4d86e8;
+}
+.claim__confetti-bit--gold {
+  background: var(--bronze-hi);
+}
+.claim__confetti-bit--white {
+  background: #eafbf9;
+}
+@keyframes claim-confetti {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.9;
+  }
+  90% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(560px) rotate(420deg);
+    opacity: 0;
+  }
+}
+
+/* ---- Flanking STAR banners ---- */
+.claim__banner {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1.2rem 0.7rem;
+  border-radius: var(--r-md);
+  background: linear-gradient(180deg, rgba(13, 13, 75, 0.5), rgba(6, 6, 31, 0.2));
+  border: 1px solid var(--glass-stroke);
+  opacity: 0.7;
+}
+.claim__banner--l {
+  left: clamp(0.5rem, 4vw, 3rem);
+}
+.claim__banner--r {
+  right: clamp(0.5rem, 4vw, 3rem);
+}
+.claim__banner-text {
+  writing-mode: vertical-rl;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--text-mute);
+}
+
+/* ===========================================================
+   Glass panel
+   =========================================================== */
+.claim__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+  margin-inline: auto;
+  padding: clamp(3.5rem, 7vw, 5rem) clamp(1.5rem, 5vw, 3.5rem) clamp(2.5rem, 5vw, 3.5rem);
+  text-align: center;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(180deg, rgba(0, 71, 187, 0.18), rgba(13, 13, 75, 0.34));
+}
+
+.claim__trophy {
+  display: grid;
+  place-items: center;
+  margin-top: -3.8rem;
+  margin-bottom: 0.6rem;
+}
+.claim__trophy-bob {
+  animation: claim-trophy-float 5s ease-in-out infinite;
+}
+@keyframes claim-trophy-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.claim__eyebrow {
+  margin-top: 0.4rem;
+  margin-bottom: 0.9rem;
+}
+.claim__title {
+  margin-bottom: 2rem;
+}
+
+/* Rotating conic border beam */
+@property --beam-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+.claim__beam {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: conic-gradient(
+    from var(--beam-angle),
+    transparent 0deg,
+    var(--cyan) 40deg,
+    transparent 130deg,
+    transparent 230deg,
+    var(--blue) 300deg,
+    transparent 360deg
+  );
+  pointer-events: none;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: claim-beam-spin 6s linear infinite;
+}
+@keyframes claim-beam-spin {
+  to {
+    --beam-angle: 360deg;
+  }
+}
+.claim__inner > *:not(.claim__beam) {
+  position: relative;
+  z-index: 1;
+}
+
+.claim__note {
+  margin-top: 1.5rem;
+}
+
+/* ---- Glossy primary button ---- */
+.claim__btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 1rem 2.4rem;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--navy-900);
+  overflow: hidden;
+  background: linear-gradient(180deg, #5cf4e6 0%, var(--cyan) 45%, #0fb8aa 100%);
+  box-shadow:
+    0 8px 24px rgba(22, 233, 215, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    inset 0 -3px 8px rgba(0, 60, 80, 0.4);
+  transition: transform 0.18s var(--ease-out), box-shadow 0.25s var(--ease-out);
+}
+.claim__btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 12px 34px rgba(22, 233, 215, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+.claim__btn:active {
+  transform: translateY(0) scale(0.98);
+}
+.claim__btn:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 4px;
+}
+.claim__btn-arrow {
+  font-size: 1.2rem;
+  transition: transform 0.2s var(--ease-out);
+}
+.claim__btn:hover .claim__btn-arrow {
+  transform: translateX(4px);
+}
+.claim__btn-shine {
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.65), transparent);
+  transform: skewX(-18deg);
+  transition: left 0.5s var(--ease-out);
+}
+.claim__btn:hover .claim__btn-shine {
+  left: 130%;
+}
+
+/* ===========================================================
+   3D podium base under the panel
+   =========================================================== */
+.claim__podium {
+  position: relative;
+  z-index: 1;
+  width: min(560px, 80%);
+  margin: -1.5rem auto 0;
+  height: 90px;
+}
+.claim__podium-top,
+.claim__podium-mid {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: linear-gradient(180deg, rgba(20, 30, 60, 0.9), rgba(6, 6, 31, 0.9));
+  border: 1px solid rgba(22, 233, 215, 0.3);
+}
+.claim__podium-top {
+  top: 0;
+  width: 70%;
+  height: 42px;
+  box-shadow: inset 0 6px 14px rgba(22, 233, 215, 0.18);
+}
+.claim__podium-mid {
+  top: 26px;
+  width: 96%;
+  height: 52px;
+  opacity: 0.85;
+}
+.claim__podium-glow {
+  position: absolute;
+  left: 50%;
+  top: 6px;
+  width: 60%;
+  height: 16px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(closest-side, var(--cyan-glow), transparent 75%);
+  filter: blur(5px);
+}
+
+@media (max-width: 680px) {
+  .claim__banner {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .claim__btn:hover {
+    transform: none;
+  }
+  .claim__btn-shine,
+  .claim__smoke {
+    animation: none;
+  }
+  .claim__trophy-bob {
+    animation: none;
+  }
+}

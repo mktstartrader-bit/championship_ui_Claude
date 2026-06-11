@@ -1,0 +1,335 @@
+.road {
+  position: relative;
+  overflow: hidden;
+}
+
+.road__intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: clamp(2.5rem, 6vw, 4.5rem);
+}
+.road__eyebrow {
+  margin-top: 0.8rem;
+  margin-bottom: 0.9rem;
+}
+
+/* ===========================================================
+   Journey curve (desktop): SVG path + absolutely placed nodes
+   Box ratio matches the SVG viewBox (1000×540) so % node
+   coordinates land exactly on the drawn path.
+   =========================================================== */
+.road__curve {
+  position: relative;
+  width: 100%;
+  max-width: 1040px;
+  margin-inline: auto;
+  aspect-ratio: 1000 / 540;
+}
+
+.road__svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* Sparkle field */
+.road__sparks {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.road__spark {
+  position: absolute;
+  width: calc(6px * var(--s, 1));
+  height: calc(6px * var(--s, 1));
+  background: #fff;
+  border-radius: 1px;
+  transform: translate(-50%, -50%) rotate(45deg);
+  box-shadow: 0 0 8px var(--cyan-glow);
+  opacity: 0.2;
+  animation: spark-twinkle 3.2s ease-in-out infinite;
+  animation-delay: var(--d, 0s);
+}
+.road__spark::before,
+.road__spark::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: inherit;
+}
+@keyframes spark-twinkle {
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: translate(-50%, -50%) rotate(45deg) scale(0.7);
+  }
+  50% {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) rotate(45deg) scale(1);
+  }
+}
+
+/* Comet riding the path (SVG circle + animateMotion) */
+.road__comet {
+  filter: drop-shadow(0 0 5px #fff) drop-shadow(0 0 12px var(--cyan));
+}
+
+/* ---- Milestone nodes ---- */
+.road__item {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.road__node {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 46px;
+  height: 46px;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, rgba(22, 233, 215, 0.45), rgba(0, 71, 187, 0.35) 60%, rgba(6, 6, 31, 0.85));
+  border: 1.5px solid var(--cyan);
+  box-shadow: 0 0 16px rgba(22, 233, 215, 0.5), inset 0 0 12px rgba(22, 233, 215, 0.25);
+  z-index: 2;
+}
+.road__node-core {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--text);
+  text-shadow: 0 0 8px var(--cyan-glow);
+}
+.road__node-ring {
+  position: absolute;
+  inset: -7px;
+  border-radius: 50%;
+  border: 1px solid rgba(22, 233, 215, 0.4);
+  animation: node-ping 2.6s ease-out infinite;
+}
+@keyframes node-ping {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.8;
+  }
+  70%,
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Champion node — larger, bronze-cyan, crowned with sparks */
+.road__node--champ {
+  width: 72px;
+  height: 72px;
+  border-color: var(--bronze-hi);
+  background: radial-gradient(circle at 40% 32%, rgba(230, 201, 168, 0.7), rgba(172, 124, 89, 0.5) 50%, rgba(6, 6, 31, 0.9));
+  box-shadow: 0 0 26px rgba(230, 201, 168, 0.6), 0 0 50px rgba(22, 233, 215, 0.35), inset 0 0 16px rgba(255, 240, 220, 0.4);
+}
+.road__node--champ .road__node-core {
+  font-size: 1.5rem;
+  color: #fff;
+}
+.road__node--champ .road__node-ring {
+  border-color: rgba(230, 201, 168, 0.6);
+}
+
+/* Champion spark burst */
+.road__champ-sparks {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.road__champ-spark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  border-radius: 1px;
+  background: var(--bronze-hi);
+  box-shadow: 0 0 8px rgba(230, 201, 168, 0.7);
+  --angle: calc(360deg / var(--n) * var(--i));
+  transform: rotate(var(--angle)) translateX(0);
+  opacity: 0;
+}
+.road__champ-spark:nth-child(odd) {
+  background: var(--cyan);
+  box-shadow: 0 0 8px var(--cyan-glow);
+}
+.is-lit .road__champ-spark {
+  animation: champ-spark-burst 1.2s var(--ease-out) 1.3s forwards;
+}
+@keyframes champ-spark-burst {
+  0% {
+    transform: rotate(var(--angle)) translateX(0) scale(0.4);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(var(--angle)) translateX(64px) scale(0);
+    opacity: 0;
+  }
+}
+
+/* ---- Milestone cards ---- */
+.road__card {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: clamp(154px, 17vw, 200px);
+  padding: 0.85rem 0.95rem;
+  border-radius: var(--r-md);
+  text-align: left;
+}
+.road__stage-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.54rem;
+  letter-spacing: 0.18em;
+  color: var(--cyan);
+  margin-bottom: 0.35rem;
+}
+.road__stage-tag--gold {
+  color: var(--bronze-hi);
+}
+.road__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.02rem;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  line-height: 1.1;
+  margin-bottom: 0.45rem;
+}
+.road__split {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  line-height: 1.5;
+  color: var(--text-mute);
+}
+.road__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.55rem;
+  padding: 0.18rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--glass-stroke-strong);
+  background: rgba(22, 233, 215, 0.08);
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cyan);
+}
+.road__check {
+  width: 11px;
+  height: 11px;
+}
+.road__status--gold {
+  color: var(--bronze-hi);
+  border-color: rgba(230, 201, 168, 0.5);
+  background: rgba(172, 124, 89, 0.16);
+}
+.road__card--champ {
+  width: clamp(170px, 18vw, 210px);
+  background: linear-gradient(180deg, rgba(172, 124, 89, 0.2), rgba(13, 13, 75, 0.4));
+  border-color: rgba(230, 201, 168, 0.4);
+}
+
+/* ---- Card placement per (side, anchor) ---- */
+.road__item--above.road__item--center .road__card {
+  transform: translate(-50%, calc(-100% - 32px));
+}
+.road__item--below.road__item--center .road__card {
+  transform: translate(-50%, 32px);
+}
+.road__item--below.road__item--left .road__card {
+  transform: translate(-8%, 32px);
+}
+.road__item--above.road__item--right .road__card {
+  transform: translate(-88%, calc(-100% - 36px));
+}
+
+/* ===========================================================
+   Mobile (<= 860px): reflow into a vertical timeline
+   =========================================================== */
+@media (max-width: 860px) {
+  .road__curve {
+    aspect-ratio: auto;
+    height: auto;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    padding-left: 1.5rem;
+  }
+  .road__curve::before {
+    content: '';
+    position: absolute;
+    left: calc(1.5rem + 22px);
+    top: 12px;
+    bottom: 12px;
+    width: 2px;
+    background: linear-gradient(180deg, var(--blue), var(--cyan), var(--bronze-hi));
+    opacity: 0.6;
+  }
+  .road__svg,
+  .road__comet,
+  .road__sparks {
+    display: none;
+  }
+  .road__item {
+    position: static;
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .road__node {
+    position: static;
+    transform: none;
+    flex-shrink: 0;
+  }
+  .road__card,
+  .road__item--above.road__item--center .road__card,
+  .road__item--below.road__item--center .road__card,
+  .road__item--below.road__item--left .road__card,
+  .road__item--above.road__item--right .road__card {
+    position: static;
+    transform: none;
+    width: auto;
+    flex: 1;
+  }
+  .road__node--champ {
+    width: 46px;
+    height: 46px;
+  }
+  .road__node--champ .road__node-core {
+    font-size: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .road__spark,
+  .road__node-ring,
+  .road__comet,
+  .road__champ-spark {
+    animation: none;
+  }
+  .road__comet {
+    display: none;
+  }
+}

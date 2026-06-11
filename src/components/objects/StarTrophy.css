@@ -1,0 +1,58 @@
+.startrophy {
+  display: block;
+  filter: drop-shadow(0 0 26px rgba(22, 233, 215, 0.5))
+    drop-shadow(0 14px 30px rgba(0, 0, 0, 0.5));
+}
+.startrophy--img {
+  object-fit: contain;
+}
+.startrophy__svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.startrophy__plaque {
+  font-family: var(--font-body);
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  fill: var(--text);
+}
+
+/* Slow float + glow pulse */
+.startrophy__star {
+  transform-origin: 120px 118px;
+  animation: st-float 6s ease-in-out infinite;
+}
+.startrophy__glow {
+  animation: st-pulse 4s ease-in-out infinite;
+  transform-origin: 120px 118px;
+}
+@keyframes st-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+@keyframes st-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .startrophy__star,
+  .startrophy__glow {
+    animation: none;
+  }
+}
