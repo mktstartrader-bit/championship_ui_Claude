@@ -19,8 +19,8 @@ export default function App() {
       {/* Full-viewport game-UI overlay (corners, scan, scroll progress) */}
       <HudFrame />
 
-      {/* Swap logoSrc with the official STARTRADER SVG when available */}
-      <HudNav logoSrc={undefined} />
+      {/* Official STARTRADER logo */}
+      <HudNav logoSrc="/startrader-logo.svg" />
 
       <main id="main">
         <Hero />

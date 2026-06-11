@@ -4,14 +4,13 @@
       <stop offset="0%" stop-color="#0D0D4B"/>
       <stop offset="100%" stop-color="#06061F"/>
     </radialGradient>
-    <linearGradient id="star" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#5CF4E6"/>
-      <stop offset="55%" stop-color="#16E9D7"/>
-      <stop offset="100%" stop-color="#0047BB"/>
-    </linearGradient>
   </defs>
   <rect width="32" height="32" rx="8" fill="url(#bg)"/>
-  <path transform="translate(4 4) scale(1.0)"
-        d="M12 1.6 L15.09 8.26 L22.4 9.18 L17 14.14 L18.45 21.4 L12 17.77 L5.55 21.4 L7 14.14 L1.6 9.18 L8.91 8.26 Z"
-        fill="url(#star)"/>
+  <!-- Official STARTRADER icon, scaled into the tile (blades on dark = light fill) -->
+  <g transform="translate(7.43 5) scale(0.05405)">
+    <path d="M316.43 229.072V178.088L219.159 154.063L267.291 81.0428L232.164 44.334L80.2344 203.107L232.547 362.279L267.674 325.52L220.071 253.097L316.43 229.072Z" fill="#EAFBF9"/>
+    <path d="M0 177.491V228.475L97.2712 252.55L49.0915 325.52L84.2185 362.279L236.148 203.455L83.8826 44.334L48.7076 81.0428L96.3594 153.466L0 177.491Z" fill="#EAFBF9"/>
+    <path d="M179.252 0H137.07V43.7224H179.252V0Z" fill="#16E9D7"/>
+    <path d="M179.252 362.443H137.07V406.166H179.252V362.443Z" fill="#16E9D7"/>
+  </g>
 </svg>

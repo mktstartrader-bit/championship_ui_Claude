@@ -18,8 +18,9 @@ export default function BrandMark({
   className = '',
 }) {
   const gid = `bm-${size}-${outline ? 'o' : 'f'}`
+  // Sharp 6-point asterisk star (STAR Trading League mark).
   const star =
-    'M12 1.6 L15.09 8.26 L22.4 9.18 L17 14.14 L18.45 21.4 L12 17.77 L5.55 21.4 L7 14.14 L1.6 9.18 L8.91 8.26 Z'
+    'M12 1 L13.6 9.23 L21.53 6.5 L15.2 12 L21.53 17.5 L13.6 14.77 L12 23 L10.4 14.77 L2.47 17.5 L8.8 12 L2.47 6.5 L10.4 9.23 Z'
 
   return (
     <svg
@@ -50,11 +51,11 @@ export default function BrandMark({
       ) : (
         <>
           <path d={star} fill={color || `url(#${gid})`} />
-          {/* facet line for a subtle 3D crystal read */}
+          {/* facet lines for a subtle 3D crystal read */}
           <path
-            d="M12 1.6 L12 17.77 M1.6 9.18 L22.4 9.18"
-            stroke="rgba(255,255,255,0.25)"
-            strokeWidth="0.6"
+            d="M12 1 L12 23 M2.47 6.5 L21.53 17.5 M2.47 17.5 L21.53 6.5"
+            stroke="rgba(255,255,255,0.22)"
+            strokeWidth="0.5"
           />
         </>
       )}

@@ -8,6 +8,51 @@
   overflow: hidden;
 }
 
+/* Real banner image (chrome star on circuit podium) */
+.hero__bgimg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 70% center;
+  z-index: 0;
+}
+.hero__bgimg-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0;
+  pointer-events: none;
+  /* darken the left for headline legibility; let the star breathe on the right */
+  background:
+    linear-gradient(
+      90deg,
+      rgba(4, 4, 15, 0.94) 0%,
+      rgba(4, 4, 15, 0.78) 32%,
+      rgba(4, 4, 15, 0.32) 56%,
+      rgba(4, 4, 15, 0) 78%
+    ),
+    linear-gradient(180deg, rgba(4, 4, 15, 0.5) 0%, transparent 22%, transparent 78%, rgba(4, 4, 15, 0.55) 100%);
+}
+.hero.has-bgimg .hero__bgimg-scrim {
+  opacity: 1;
+}
+/* When the real image is shown, the right column is empty (star fills it) */
+.hero.has-bgimg .hero__grid {
+  grid-template-columns: 1fr;
+}
+.hero.has-bgimg .hero__copy {
+  max-width: 44ch;
+}
+
+@media (max-width: 860px) {
+  /* On small screens, push the image focus toward the star and darken more */
+  .hero__bgimg {
+    object-position: 64% center;
+  }
+}
+
 /* ---- Arena lighting ---- */
 .hero__spotlights {
   position: absolute;
@@ -97,15 +142,17 @@
   background: var(--glass-stroke-strong);
 }
 
-/* ---- 3D chrome metallic headline ---- */
+/* ---- Headline: plain bold white (no decorative styling) ---- */
 .hero__title {
   font-family: var(--font-display);
   font-weight: 800;
   font-size: var(--fs-display);
-  line-height: 1.04;
-  letter-spacing: -0.04em;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--text);
   margin-bottom: 1.8rem;
-  filter: drop-shadow(0 0 30px rgba(46, 123, 255, 0.25));
+  /* subtle shadow for legibility over the busy banner only */
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
 }
 .hero__line {
   display: block;
@@ -118,48 +165,11 @@
 .hero__word-wrap {
   display: inline-block;
   vertical-align: top;
+  margin-right: 0.26em; /* inter-word spacing (inline-block gap) */
 }
 .hero__word {
   display: inline-block;
-  /* chrome silver gradient fill */
-  background: linear-gradient(
-    180deg,
-    #ffffff 0%,
-    #e6ecf3 28%,
-    #aab6c6 50%,
-    #ffffff 58%,
-    #b9c4d2 78%,
-    #828ea0 100%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  /* stacked extrusion for the 3D bevel */
-  text-shadow:
-    0 1px 0 #c2ccd9,
-    0 2px 0 #a3aebd,
-    0 3px 0 #8b96a6,
-    0 4px 1px #6f7989,
-    0 7px 12px rgba(0, 0, 0, 0.55);
-}
-.hero__line--accent .hero__word {
-  background: linear-gradient(
-    180deg,
-    #d9fffb 0%,
-    #5cf4e6 36%,
-    #16e9d7 58%,
-    #0fb8aa 100%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow:
-    0 1px 0 #0fb8aa,
-    0 2px 0 #0c9c91,
-    0 3px 0 #097f76,
-    0 4px 1px #066b63,
-    0 7px 16px rgba(22, 233, 215, 0.55);
+  color: var(--text);
 }
 
 /* ---- Bell notification HUD panel ---- */

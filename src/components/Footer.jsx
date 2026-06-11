@@ -1,4 +1,3 @@
-import BrandMark from './objects/BrandMark'
 import './Footer.css'
 
 export default function Footer() {
@@ -15,10 +14,7 @@ export default function Footer() {
         </p>
 
         <div className="footer__baseline">
-          <span className="footer__mark">
-            <BrandMark size={22} />
-            STAR<span className="footer__mark-accent">TRADER</span>
-          </span>
+          <img className="footer__logo" src="/startrader-logo.svg" alt="STARTRADER" />
           <span className="footer__legal">
             STARTRADER is an official NBA partner. STAR Trading League · 2026
             Season. All trademarks are the property of their respective owners.

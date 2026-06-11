@@ -1,7 +1,7 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import CandlestickCanvas from './CandlestickCanvas'
-import StarTrophy from './objects/StarTrophy'
+import GlossyStar from './objects/GlossyStar'
 import Ticker from './effects/Ticker'
 import useReducedMotion from '../hooks/useReducedMotion'
 import './Hero.css'
@@ -35,6 +35,8 @@ const CONFETTI = Array.from({ length: 20 }, (_, i) => ({
 export default function Hero() {
   const reduced = useReducedMotion()
   const sectionRef = useRef(null)
+  // Real banner render; if the asset is missing we fall back to the CSS scene.
+  const [bgOk, setBgOk] = useState(false)
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -58,14 +60,32 @@ export default function Hero() {
   }
 
   return (
-    <section className="hero" id="top" aria-labelledby="hero-title" ref={sectionRef}>
-      <CandlestickCanvas />
+    <section
+      className={`hero ${bgOk ? 'has-bgimg' : ''}`}
+      id="top"
+      aria-labelledby="hero-title"
+      ref={sectionRef}
+    >
+      {/* Real banner image (chrome star on circuit podium) */}
+      <img
+        className="hero__bgimg"
+        src="/hero-star.png"
+        alt=""
+        aria-hidden="true"
+        onLoad={() => setBgOk(true)}
+        onError={() => setBgOk(false)}
+      />
+      <span className="hero__bgimg-scrim" aria-hidden="true" />
 
-      {/* Arena lighting + confetti */}
-      <div className="hero__spotlights" aria-hidden="true">
-        <span className="hero__spot hero__spot--l" />
-        <span className="hero__spot hero__spot--r" />
-      </div>
+      {!bgOk && <CandlestickCanvas />}
+
+      {/* Arena lighting (CSS fallback only) */}
+      {!bgOk && (
+        <div className="hero__spotlights" aria-hidden="true">
+          <span className="hero__spot hero__spot--l" />
+          <span className="hero__spot hero__spot--r" />
+        </div>
+      )}
       {!reduced && (
         <div className="hero__confetti" aria-hidden="true">
           {CONFETTI.map((c, i) => (
@@ -112,7 +132,7 @@ export default function Hero() {
                   <span className="hero__word-wrap" key={`${word}-${i}`}>
                     <motion.span className="hero__word" variants={wordRise}>
                       {word}
-                    </motion.span>{' '}
+                    </motion.span>
                   </span>
                 ))}
               </span>
@@ -160,23 +180,25 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* Star trophy on a podium */}
-        <motion.div
-          className="hero__stage"
-          variants={rise}
-          initial="hidden"
-          animate="show"
-          transition={{ delay: reduced ? 0 : 0.7, duration: 0.8 }}
-          style={{ y: trophyY, scale: trophyScale }}
-        >
-          <div className="hero__rise-arrow" aria-hidden="true" />
-          <StarTrophy size={420} />
-          <div className="hero__podium" aria-hidden="true">
-            <span className="hero__podium-top" />
-            <span className="hero__podium-mid" />
-            <span className="hero__podium-glow" />
-          </div>
-        </motion.div>
+        {/* Star trophy on a podium (CSS fallback when no banner image) */}
+        {!bgOk && (
+          <motion.div
+            className="hero__stage"
+            variants={rise}
+            initial="hidden"
+            animate="show"
+            transition={{ delay: reduced ? 0 : 0.7, duration: 0.8 }}
+            style={{ y: trophyY, scale: trophyScale }}
+          >
+            <div className="hero__rise-arrow" aria-hidden="true" />
+            <GlossyStar size={360} />
+            <div className="hero__podium" aria-hidden="true">
+              <span className="hero__podium-top" />
+              <span className="hero__podium-mid" />
+              <span className="hero__podium-glow" />
+            </div>
+          </motion.div>
+        )}
       </div>
 
       <motion.div
