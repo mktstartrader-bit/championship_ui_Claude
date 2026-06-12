@@ -2,6 +2,7 @@ import { useRef, useState } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import StarTrophy from './objects/StarTrophy'
 import GlossyBasketball from './objects/GlossyBasketball'
+import CursorFireworks from './effects/CursorFireworks'
 import useReducedMotion from '../hooks/useReducedMotion'
 import './MoreThanTournament.css'
 
@@ -118,41 +119,52 @@ export default function MoreThanTournament() {
       </div>
       )}
 
-      {/* ===== Overlaid copy ===== */}
+      {/* Cursor-triggered fireworks */}
+      <CursorFireworks />
+
+      {/* ===== Overlaid copy — heading top-center, subtexts L & R ===== */}
       <motion.div
         className="container more__inner"
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.3 }}
       >
-        <div className="more__top">
-          <motion.span className="section-index" variants={fade} custom={0}>
+        <motion.div className="more__head" variants={fade} custom={0}>
+          <span className="section-index">
             <b>05</b> / 06
-          </motion.span>
-          <motion.p className="eyebrow" variants={fade} custom={1}>
-            BEYOND THE BRACKET
-          </motion.p>
-          <motion.h2 id="more-title" className="section-title more__title" variants={fade} custom={2}>
+          </span>
+          <p className="eyebrow">BEYOND THE BRACKET</p>
+          <h2 id="more-title" className="section-title more__title">
             More Than a Tournament
-          </motion.h2>
-          <motion.p className="more__lead" variants={fade} custom={3}>
+          </h2>
+        </motion.div>
+
+        <div className="more__sides">
+          <motion.p
+            className="more__side more__side--left more__lead"
+            initial={{ opacity: 0, y: reduced ? 0 : 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: reduced ? 0 : 0.1 }}
+          >
             The STAR Trading League: A competition defined by market performance and
             competitive spirit.
           </motion.p>
-        </div>
 
-        <motion.div className="more__bottom" variants={fade} custom={4}>
-          <div className="more__confs">
-            <span className="more__conf more__conf--east">Eastern Conference</span>
-            <span className="more__conf more__conf--west">Western Conference</span>
-          </div>
-          <span className="more__divider" aria-hidden="true" />
-          <p className="more__line">You competed. You represented. You traded.</p>
-          <p className="more__line more__line--mute">
-            Whether you made it to the finals or fell in the early rounds, every
-            participant was part of something bigger.
-          </p>
-        </motion.div>
+          <motion.div
+            className="more__side more__side--right"
+            initial={{ opacity: 0, y: reduced ? 0 : 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: reduced ? 0 : 0.2 }}
+          >
+            <p className="more__line">You competed. You represented. You traded.</p>
+            <p className="more__line more__line--mute">
+              Whether you made it to the finals or fell in the early rounds, every
+              participant was part of something bigger.
+            </p>
+          </motion.div>
+        </div>
       </motion.div>
     </section>
   )

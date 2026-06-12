@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import Ticker from './effects/Ticker'
 import useReducedMotion from '../hooks/useReducedMotion'
@@ -17,9 +17,42 @@ const TICKER_ITEMS = [
   { label: 'BRACKET', value: 'COMPLETE', up: true },
 ]
 
+const FIREWORKS = [
+  { x: '9%', y: '22%', delay: '0s', r: '96px', color: 'var(--cyan)' },
+  { x: '15%', y: '50%', delay: '1.2s', r: '78px', color: '#e8c45a' },
+  { x: '6%', y: '68%', delay: '3.0s', r: '84px', color: '#6aa6ff' },
+  { x: '50%', y: '9%', delay: '2.2s', r: '108px', color: 'var(--cyan)' },
+  { x: '91%', y: '20%', delay: '0.6s', r: '96px', color: '#e8c45a' },
+  { x: '85%', y: '48%', delay: '2.0s', r: '80px', color: 'var(--cyan)' },
+  { x: '94%', y: '66%', delay: '3.6s', r: '84px', color: '#6aa6ff' },
+]
+const FW_SPARKS = Array.from({ length: 16 }, (_, i) => i)
+
+const BURST_SPARKS = Array.from({ length: 14 }, (_, i) => i)
+const BURST_COLORS = ['var(--cyan)', '#e8c45a', '#6aa6ff', '#ff7eb6']
+
 export default function Hero() {
   const reduced = useReducedMotion()
   const [posterOk, setPosterOk] = useState(true)
+
+  // Cursor-triggered fireworks
+  const [bursts, setBursts] = useState([])
+  const lastSpawn = useRef(0)
+  const idRef = useRef(0)
+
+  function spawnBurst(e) {
+    if (reduced) return
+    const t = e.timeStamp
+    if (t - lastSpawn.current < 110) return // throttle
+    lastSpawn.current = t
+    const rect = e.currentTarget.getBoundingClientRect()
+    const x = e.clientX - rect.left
+    const y = e.clientY - rect.top
+    const id = ++idRef.current
+    const color = BURST_COLORS[id % BURST_COLORS.length]
+    setBursts((prev) => [...prev.slice(-13), { id, x, y, color }])
+    setTimeout(() => setBursts((prev) => prev.filter((b) => b.id !== id)), 900)
+  }
 
   const ease = [0.22, 1, 0.36, 1]
   const rise = (delay = 0) => ({
@@ -29,7 +62,12 @@ export default function Hero() {
   })
 
   return (
-    <section className={`hero ${posterOk ? 'has-bgimg' : ''}`} id="top" aria-labelledby="hero-title">
+    <section
+      className={`hero ${posterOk ? 'has-bgimg' : ''}`}
+      id="top"
+      aria-labelledby="hero-title"
+      onPointerMove={spawnBurst}
+    >
       {/* Full-bleed banner image */}
       <img
         className="hero__bgimg"
@@ -38,6 +76,42 @@ export default function Hero() {
         onError={() => setPosterOk(false)}
       />
       <span className="hero__scrim" aria-hidden="true" />
+
+      {/* Minimal celebration: occasional firework bursts */}
+      {!reduced && (
+        <div className="hero__fw" aria-hidden="true">
+          {FIREWORKS.map((f, i) => (
+            <span
+              key={i}
+              className="hero__firework"
+              style={{ left: f.x, top: f.y, color: f.color, '--d': f.delay, '--r': f.r }}
+            >
+              <span className="hero__fw-flash" />
+              {FW_SPARKS.map((s) => (
+                <span key={s} className="hero__fw-spark" style={{ '--i': s }} />
+              ))}
+            </span>
+          ))}
+        </div>
+      )}
+
+      {/* Cursor-triggered firework bursts */}
+      {!reduced && bursts.length > 0 && (
+        <div className="hero__cursor-fw" aria-hidden="true">
+          {bursts.map((b) => (
+            <span
+              key={b.id}
+              className="hero__burst"
+              style={{ left: `${b.x}px`, top: `${b.y}px`, color: b.color }}
+            >
+              <span className="hero__burst-flash" />
+              {BURST_SPARKS.map((s) => (
+                <span key={s} className="hero__burst-spark" style={{ '--i': s }} />
+              ))}
+            </span>
+          ))}
+        </div>
+      )}
 
       {/* Bottom overlay: heading (left) + content (right) */}
       <div className="hero__overlay container">

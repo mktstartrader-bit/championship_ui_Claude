@@ -9,9 +9,7 @@ export default function Footer() {
           Strategy. Skill. Squad. The STAR Trading League: where the market meets
           the court.
         </p>
-        <p className="footer__signoff">
-          Stay tuned for the next season. <span aria-hidden="true">🏀</span>
-        </p>
+        <p className="footer__signoff">Stay tuned for the next season.</p>
 
         <div className="footer__baseline">
           <img className="footer__logo" src="/startrader-logo.svg" alt="STARTRADER" />
