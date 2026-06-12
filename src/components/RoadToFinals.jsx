@@ -59,10 +59,6 @@ export default function RoadToFinals() {
           viewport={{ once: true, amount: 0.6 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          <span className="section-index">
-            <b>04</b> / 06 · BRACKET
-          </span>
-          <p className="eyebrow road__eyebrow">THE BRACKET · 30 → 1</p>
           <h2 id="road-title" className="section-title">
             The Road to the Finals
           </h2>
@@ -146,16 +142,9 @@ export default function RoadToFinals() {
                 <span className="road__node-core">{s.total}</span>
               </span>
               <div className="road__card glass">
-                <span className="road__stage-tag">STAGE {i + 1}</span>
                 <h3 className="road__name">{s.name}</h3>
                 <p className="road__split">{s.east}</p>
                 <p className="road__split">{s.west}</p>
-                <span className="road__status">
-                  <svg viewBox="0 0 16 16" className="road__check" aria-hidden="true">
-                    <path d="M3 8.5 L6.5 12 L13 4" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                  Cleared
-                </span>
               </div>
             </motion.div>
           ))}
@@ -178,10 +167,7 @@ export default function RoadToFinals() {
               )}
             </span>
             <div className="road__card road__card--champ glass corner-brackets">
-              <span className="road__stage-tag road__stage-tag--gold">FINAL</span>
               <h3 className="road__name">MVP Champion</h3>
-              <p className="road__split">The highest profit rate of all 30.</p>
-              <span className="road__status road__status--gold">★ Champion</span>
             </div>
           </motion.div>
         </motion.div>

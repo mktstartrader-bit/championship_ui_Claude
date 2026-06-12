@@ -1,21 +1,9 @@
 import { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
-import Ticker from './effects/Ticker'
 import useReducedMotion from '../hooks/useReducedMotion'
 import './Hero.css'
 
 const HEADLINE_LINES = ['The Season Has', 'Reached Its', 'Final Moment']
-
-const TICKER_ITEMS = [
-  { label: 'EAST', value: '15→1', up: true },
-  { label: 'WEST', value: '15→1', up: true },
-  { label: 'STAGES', value: '5 / 5', up: true },
-  { label: 'PROFIT RATE', value: 'MVP', up: true },
-  { label: 'GRAND PRIZE', value: '$10,000', up: true },
-  { label: 'TEAMS', value: '30', up: false },
-  { label: 'CHAMPION', value: 'CROWNED', up: true },
-  { label: 'BRACKET', value: 'COMPLETE', up: true },
-]
 
 const FIREWORKS = [
   { x: '9%', y: '22%', delay: '0s', r: '96px', color: 'var(--cyan)' },
@@ -72,12 +60,12 @@ export default function Hero() {
       <img
         className="hero__bgimg"
         src="/hero-champions.jpg"
-        alt="STAR Trading League — Champions Crowned. Official Partner of the NBA."
+        alt="STAR Trading League"
         onError={() => setPosterOk(false)}
       />
       <span className="hero__scrim" aria-hidden="true" />
 
-      {/* Minimal celebration: occasional firework bursts */}
+      {/* Celebration: ambient firework bursts */}
       {!reduced && (
         <div className="hero__fw" aria-hidden="true">
           {FIREWORKS.map((f, i) => (
@@ -136,21 +124,8 @@ export default function Hero() {
             <span className="hero__chip-value">1 June 2026 – 13 August 2026</span>
             <span className="hero__chip-state">Concluded</span>
           </div>
-          <a className="hero__cta" href="#claim">
-            Claim Your Prize
-            <span className="hero__cta-arrow" aria-hidden="true">→</span>
-          </a>
         </motion.div>
       </div>
-
-      <motion.div
-        className="hero__ticker"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: reduced ? 0 : 0.9, duration: 0.8 }}
-      >
-        <Ticker items={TICKER_ITEMS} speed={42} />
-      </motion.div>
     </section>
   )
 }

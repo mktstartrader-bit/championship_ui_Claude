@@ -6,6 +6,7 @@ import MoreThanTournament from './components/MoreThanTournament'
 import ClaimPrize from './components/ClaimPrize'
 import Footer from './components/Footer'
 import HudFrame from './components/effects/HudFrame'
+import SectionConnector from './components/effects/SectionConnector'
 
 export default function App() {
   return (
@@ -27,6 +28,7 @@ export default function App() {
         <Champions />
         <RoadToFinals />
         <MoreThanTournament />
+        <SectionConnector />
         <ClaimPrize />
       </main>
 

@@ -1,7 +1,6 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Trophy from './objects/Trophy'
-import BrandMark from './objects/BrandMark'
 import useReducedMotion from '../hooks/useReducedMotion'
 import './ClaimPrize.css'
 
@@ -33,11 +32,12 @@ export default function ClaimPrize({ href = '#claim' }) {
 
   return (
     <section className="section claim" id="claim" aria-labelledby="claim-title" ref={ref}>
-      {/* Stage ambience */}
+      {/* Clean futuristic stage ambience */}
       <div className="claim__stage" aria-hidden="true">
-        <span className="claim__spotlight" />
-        <span className="claim__smoke claim__smoke--l" />
-        <span className="claim__smoke claim__smoke--r" />
+        <span className="claim__glow" />
+        <span className="claim__ring claim__ring--1" />
+        <span className="claim__ring claim__ring--2" />
+        <span className="claim__ring claim__ring--3" />
         <div className="claim__confetti">
           {!reduced &&
             CONFETTI.map((c, i) => (
@@ -54,17 +54,6 @@ export default function ClaimPrize({ href = '#claim' }) {
               />
             ))}
         </div>
-        <span className="claim__floor" />
-      </div>
-
-      {/* Flanking STAR banners */}
-      <div className="claim__banner claim__banner--l" aria-hidden="true">
-        <BrandMark size={30} />
-        <span className="claim__banner-text">STAR TRADING LEAGUE</span>
-      </div>
-      <div className="claim__banner claim__banner--r" aria-hidden="true">
-        <BrandMark size={30} />
-        <span className="claim__banner-text">STAR TRADING LEAGUE</span>
       </div>
 
       <motion.div
@@ -82,10 +71,6 @@ export default function ClaimPrize({ href = '#claim' }) {
           </div>
         </motion.div>
 
-        <span className="section-index">
-          <b>06</b> / 06
-        </span>
-        <p className="eyebrow claim__eyebrow">YOUR REWARD AWAITS</p>
         <h2 id="claim-title" className="section-title claim__title">
           Claim Your Prize
         </h2>
@@ -95,13 +80,6 @@ export default function ClaimPrize({ href = '#claim' }) {
           <span className="claim__btn-arrow" aria-hidden="true">→</span>
           <span className="claim__btn-shine" aria-hidden="true" />
         </a>
-
-        <p className="claim__note">
-          <span className="hud-tag">
-            <span className="hud-tag__dot" />
-            CLAIM WINDOW OPEN
-          </span>
-        </p>
       </motion.div>
 
       {/* 3D podium base */}

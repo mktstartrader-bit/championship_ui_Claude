@@ -29,13 +29,22 @@
   --text: #dae3ed; /* primary text on dark */
   --text-mute: #8a93b0; /* captions, secondary */
 
+  /* Brand accents (from STARTRADER brand hub):
+       electric blue  = #0047BB  (--blue / --brand-strong, structural)
+       turquoise      = #16E9D7  (--cyan, highlight)
+     --brand is the electric-blue hue brightened only so small uppercase
+     labels stay legible on the near-black background. */
+  --brand: #2f6bff;
+  --brand-strong: #0047bb;
+
   /* ---- Derived / utility (composed only from brand values) ---- */
-  --glass-bg: rgba(13, 13, 75, 0.28);
-  --glass-stroke: rgba(22, 233, 215, 0.18);
-  --glass-stroke-strong: rgba(22, 233, 215, 0.42);
+  --glass-bg: rgba(13, 13, 75, 0.32);
+  --glass-stroke: rgba(46, 123, 255, 0.22);
+  --glass-stroke-strong: rgba(46, 123, 255, 0.5);
   --panel-base: rgba(28, 31, 42, 0.55);
   --cyan-glow: rgba(22, 233, 215, 0.55);
   --blue-glow: rgba(0, 71, 187, 0.55);
+  --brand-glow: rgba(46, 123, 255, 0.55);
 
   /* Type families — Plus Jakarta Sans is the single typeface across the
      whole site. The "mono" token is kept as an alias (used by HUD labels

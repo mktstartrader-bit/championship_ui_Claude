@@ -31,9 +31,10 @@ body::before {
   inset: -20%;
   z-index: -3;
   background:
-    radial-gradient(40% 50% at 18% 12%, rgba(0, 71, 187, 0.45), transparent 60%),
-    radial-gradient(38% 46% at 84% 22%, rgba(22, 233, 215, 0.22), transparent 62%),
-    radial-gradient(50% 60% at 50% 108%, rgba(0, 71, 187, 0.4), transparent 60%),
+    radial-gradient(42% 52% at 18% 12%, rgba(0, 71, 187, 0.55), transparent 60%),
+    radial-gradient(40% 48% at 84% 22%, rgba(46, 123, 255, 0.34), transparent 62%),
+    radial-gradient(40% 46% at 70% 64%, rgba(22, 233, 215, 0.14), transparent 60%),
+    radial-gradient(55% 62% at 50% 108%, rgba(0, 71, 187, 0.5), transparent 60%),
     linear-gradient(180deg, var(--navy-900) 0%, #04040f 100%);
   animation: aurora-drift 26s ease-in-out infinite alternate;
 }
@@ -54,8 +55,8 @@ body::after {
   z-index: -2;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(22, 233, 215, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(22, 233, 215, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(46, 123, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(46, 123, 255, 0.05) 1px, transparent 1px);
   background-size: 48px 48px;
   mask-image: radial-gradient(120% 95% at 50% 25%, #000 30%, transparent 92%);
 }
@@ -75,8 +76,8 @@ body::after {
   bottom: -10%;
   height: 55vh;
   background-image:
-    linear-gradient(rgba(22, 233, 215, 0.16) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(22, 233, 215, 0.1) 1px, transparent 1px);
+    linear-gradient(rgba(46, 123, 255, 0.18) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(46, 123, 255, 0.12) 1px, transparent 1px);
   background-size: 60px 60px;
   transform: perspective(420px) rotateX(68deg);
   transform-origin: bottom center;
@@ -124,7 +125,7 @@ button {
 
 /* ---- Accessibility: visible keyboard focus everywhere ---- */
 :focus-visible {
-  outline: 2px solid var(--cyan);
+  outline: 2px solid var(--brand);
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -177,10 +178,10 @@ button {
 .eyebrow {
   font-family: var(--font-mono);
   font-size: var(--fs-label);
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: var(--cyan);
+  color: var(--brand);
 }
 
 .section-title {
@@ -200,7 +201,7 @@ button {
   color: var(--text-mute);
 }
 .section-index b {
-  color: var(--cyan);
+  color: var(--brand);
   font-weight: 700;
 }
 
@@ -247,7 +248,7 @@ button {
   padding: 0.32rem 0.7rem;
   border-radius: 999px;
   border: 1px solid var(--glass-stroke-strong);
-  background: rgba(22, 233, 215, 0.06);
+  background: rgba(46, 123, 255, 0.08);
   font-family: var(--font-mono);
   font-size: 0.62rem;
   letter-spacing: 0.16em;
@@ -258,8 +259,8 @@ button {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--cyan);
-  box-shadow: 0 0 8px var(--cyan-glow);
+  background: var(--brand);
+  box-shadow: 0 0 8px var(--brand-glow);
 }
 
 @media (prefers-reduced-motion: reduce) {

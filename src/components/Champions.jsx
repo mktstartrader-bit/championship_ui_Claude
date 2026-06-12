@@ -13,7 +13,6 @@ const TIERS = [
     title: 'Second Place',
     meta: 'USD 200 NBA Store Voucher (4 person)',
     prizes: ['NBA Jersey or NBA Basketball Shoes — you choose.'],
-    profit: 82, // relative profit-rate index for the HUD bar
   },
   {
     key: 'first',
@@ -28,7 +27,6 @@ const TIERS = [
       'NBA Signature Jersey',
       '$10,000 Cash Reward',
     ],
-    profit: 100,
   },
   {
     key: 'third',
@@ -38,7 +36,6 @@ const TIERS = [
     title: 'Third Place',
     meta: 'USD 150 NBA Store Voucher (4 person)',
     prizes: ['NBA Jersey or NBA Basketball Shoes — you choose.'],
-    profit: 71,
   },
 ]
 
@@ -101,21 +98,6 @@ function PrizeCard({ tier, reduced }) {
           ))}
         </ul>
 
-        {/* Profit-rate HUD meter */}
-        <div className="prize-card__meter" aria-hidden="true">
-          <span className="prize-card__meter-label">Profit Rate Index</span>
-          <span className="prize-card__meter-track">
-            <motion.span
-              className="prize-card__meter-fill"
-              initial={{ width: 0 }}
-              whileInView={{ width: `${tier.profit}%` }}
-              viewport={{ once: true, amount: 0.6 }}
-              transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
-            />
-          </span>
-          <span className="prize-card__meter-val">{tier.profit}</span>
-        </div>
-
         <span className="prize-card__shine" aria-hidden="true" />
       </article>
 
@@ -147,10 +129,6 @@ export default function Champions() {
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          <span className="section-index">
-            <b>03</b> / 06 · PODIUM
-          </span>
-          <p className="eyebrow champions__eyebrow">CHAMPIONS · 2026 SEASON</p>
           <h2 id="champions-title" className="section-title">
             Meet Your MVP Champions
           </h2>

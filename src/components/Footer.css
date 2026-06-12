@@ -66,15 +66,36 @@
   width: auto;
   opacity: 0.92;
 }
+
+/* Risk warning / legal */
+.footer__legal {
+  width: 100%;
+  margin-top: 2.6rem;
+  padding-top: 1.8rem;
+  border-top: 1px solid var(--glass-stroke);
+  text-align: left;
+}
+.footer__legal-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brand);
+  margin-bottom: 0.6rem;
+}
+.footer__legal-title:not(:first-child) {
+  margin-top: 1.8rem;
+}
+.footer__legal-text {
+  font-size: 0.72rem;
+  line-height: 1.7;
+  color: var(--text-mute);
+  margin-bottom: 0.8rem;
+}
+.footer__legal-text:last-child {
+  margin-bottom: 0;
+}
 .footer__mark-accent {
   color: var(--cyan);
 }
 
-.footer__legal {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.03em;
-  color: var(--text-mute);
-  max-width: 56ch;
-  line-height: 1.6;
-}
