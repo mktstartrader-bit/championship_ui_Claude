@@ -23,15 +23,17 @@
   z-index: 1;
   opacity: 0;
   pointer-events: none;
-  /* darken top + bottom for the heading and closing copy; keep the trophy clear */
-  background: linear-gradient(
-    180deg,
-    rgba(4, 4, 15, 0.9) 0%,
-    rgba(4, 4, 15, 0.4) 22%,
-    rgba(4, 4, 15, 0.15) 48%,
-    rgba(4, 4, 15, 0.55) 78%,
-    rgba(4, 4, 15, 0.94) 100%
-  );
+  /* darken top + bottom strongly for copy legibility; keep the trophy core clear */
+  background:
+    linear-gradient(
+      180deg,
+      rgba(4, 4, 15, 0.96) 0%,
+      rgba(4, 4, 15, 0.7) 18%,
+      rgba(4, 4, 15, 0.32) 42%,
+      rgba(4, 4, 15, 0.6) 66%,
+      rgba(4, 4, 15, 0.97) 100%
+    ),
+    radial-gradient(80% 40% at 50% 100%, rgba(4, 4, 15, 0.7), transparent 70%);
 }
 .more.has-bgimg .more__bgimg-scrim {
   opacity: 1;
@@ -190,7 +192,7 @@
   margin-bottom: 0.9rem;
 }
 .more__title {
-  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9), 0 4px 24px rgba(0, 0, 0, 0.7);
   margin-bottom: 1.1rem;
 }
 .more__lead {
@@ -202,7 +204,7 @@
   color: var(--text);
   max-width: 46ch;
   margin: 0 auto;
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9), 0 3px 16px rgba(0, 0, 0, 0.7);
   text-wrap: balance;
 }
 
@@ -245,7 +247,7 @@
   font-weight: 700;
   color: var(--text);
   margin-bottom: 0.7rem;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95), 0 3px 14px rgba(0, 0, 0, 0.8);
 }
 .more__line--mute {
   font-weight: 400;

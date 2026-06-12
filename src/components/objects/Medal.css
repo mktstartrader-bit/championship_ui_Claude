@@ -18,6 +18,11 @@
   --m2: var(--sand);
   --m3: #a98a6a;
 }
+.medal--gold {
+  --m1: #fff1c2;
+  --m2: #e8c45a;
+  --m3: #a87d1e;
+}
 
 .medal--img {
   object-fit: contain;

@@ -168,7 +168,7 @@ export default function RoadToFinals() {
           >
             <span className="road__node road__node--champ" aria-hidden="true">
               <span className="road__node-ring" />
-              <span className="road__node-core">1</span>
+              <img className="road__champ-trophy" src="/champion-trophy.png" alt="" />
               {!reduced && (
                 <span className="road__champ-sparks">
                   {Array.from({ length: 10 }, (_, n) => (

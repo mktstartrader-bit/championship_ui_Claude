@@ -1,6 +1,5 @@
 import { useRef } from 'react'
 import { motion } from 'framer-motion'
-import Trophy from './objects/Trophy'
 import Medal from './objects/Medal'
 import useReducedMotion from '../hooks/useReducedMotion'
 import './Champions.css'
@@ -20,7 +19,7 @@ const TIERS = [
     key: 'first',
     rank: 1,
     placeClass: 'is-first',
-    crown: <Trophy size={132} />,
+    crown: <Medal variant="gold" place="1" size={96} />,
     title: 'Grand Prize Winners',
     meta: 'Top 2',
     prizes: [

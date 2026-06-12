@@ -52,7 +52,7 @@ export default function MoreThanTournament() {
       {/* Real neon trophy scene */}
       <img
         className="more__bgimg"
-        src="/more-trophy.png"
+        src="/more-trophy.jpg"
         alt=""
         aria-hidden="true"
         onLoad={() => setBgOk(true)}
