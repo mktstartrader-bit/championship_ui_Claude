@@ -147,23 +147,125 @@
   background: linear-gradient(180deg, rgba(0, 71, 187, 0.18), rgba(13, 13, 75, 0.34));
 }
 
-.claim__trophy {
+/* ---- Trophy reward reveal ---- */
+.claim__crown {
+  position: relative;
   display: grid;
   place-items: center;
-  margin-top: -3.8rem;
-  margin-bottom: 0.6rem;
+  width: clamp(220px, 36vw, 300px);
+  height: clamp(220px, 32vw, 280px);
+  margin-top: clamp(-5.5rem, -9vw, -4rem);
+  margin-bottom: 0.4rem;
 }
+
+/* Radiating light rays behind the trophy */
+.claim__rays {
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  width: 150%;
+  height: 150%;
+  transform: translate(-50%, -50%);
+  background: repeating-conic-gradient(
+    from 0deg,
+    rgba(22, 233, 215, 0.16) 0deg 4deg,
+    transparent 4deg 15deg
+  );
+  -webkit-mask-image: radial-gradient(closest-side, #000 8%, transparent 60%);
+  mask-image: radial-gradient(closest-side, #000 8%, transparent 60%);
+  opacity: 0.7;
+  animation: claim-rays 32s linear infinite;
+}
+@keyframes claim-rays {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Soft glow halo */
+.claim__halo {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 86%;
+  height: 86%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    closest-side,
+    rgba(22, 233, 215, 0.4),
+    rgba(0, 71, 187, 0.22) 48%,
+    transparent 72%
+  );
+  filter: blur(8px);
+  animation: claim-halo 4s ease-in-out infinite;
+}
+@keyframes claim-halo {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+/* Sparkles */
+.claim__sparks {
+  position: absolute;
+  inset: 0;
+}
+.claim__spark {
+  position: absolute;
+  width: calc(7px * var(--s, 1));
+  height: calc(7px * var(--s, 1));
+  background: #fff;
+  border-radius: 1px;
+  transform: translate(-50%, -50%) rotate(45deg);
+  box-shadow: 0 0 8px var(--cyan), 0 0 14px var(--brand-glow);
+  animation: claim-spark 3s ease-in-out infinite;
+  animation-delay: var(--d, 0s);
+}
+@keyframes claim-spark {
+  0%, 100% { opacity: 0.2; transform: translate(-50%, -50%) rotate(45deg) scale(0.6); }
+  50% { opacity: 1; transform: translate(-50%, -50%) rotate(45deg) scale(1); }
+}
+
+/* The trophy itself */
 .claim__trophy-bob {
+  position: relative;
+  z-index: 2;
   animation: claim-trophy-float 5s ease-in-out infinite;
 }
+.claim__trophy-img {
+  height: clamp(150px, 24vw, 210px);
+  width: auto;
+  filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.6))
+    drop-shadow(0 0 22px rgba(22, 233, 215, 0.45));
+}
 @keyframes claim-trophy-float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Glowing pedestal disc under the trophy */
+.claim__pedestal {
+  position: absolute;
+  bottom: 4%;
+  left: 50%;
+  width: 60%;
+  height: 42px;
+  transform: translateX(-50%);
+  z-index: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(closest-side, rgba(22, 233, 215, 0.45), rgba(0, 71, 187, 0.3) 55%, transparent 78%);
+  box-shadow: 0 0 34px var(--brand-glow);
+  animation: claim-halo 4s ease-in-out infinite;
+}
+.claim__pedestal::before {
+  content: '';
+  position: absolute;
+  top: 38%;
+  left: 50%;
+  width: 78%;
+  height: 30%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  border: 1px solid rgba(22, 233, 215, 0.55);
+  background: linear-gradient(180deg, rgba(22, 233, 215, 0.18), transparent);
 }
 
 .claim__eyebrow {
@@ -271,61 +373,17 @@
   left: 130%;
 }
 
-/* ===========================================================
-   3D podium base under the panel
-   =========================================================== */
-.claim__podium {
-  position: relative;
-  z-index: 1;
-  width: min(560px, 80%);
-  margin: -1.5rem auto 0;
-  height: 90px;
-}
-.claim__podium-top,
-.claim__podium-mid {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 50%;
-  background: linear-gradient(180deg, rgba(20, 30, 60, 0.9), rgba(6, 6, 31, 0.9));
-  border: 1px solid rgba(22, 233, 215, 0.3);
-}
-.claim__podium-top {
-  top: 0;
-  width: 70%;
-  height: 42px;
-  box-shadow: inset 0 6px 14px rgba(22, 233, 215, 0.18);
-}
-.claim__podium-mid {
-  top: 26px;
-  width: 96%;
-  height: 52px;
-  opacity: 0.85;
-}
-.claim__podium-glow {
-  position: absolute;
-  left: 50%;
-  top: 6px;
-  width: 60%;
-  height: 16px;
-  transform: translateX(-50%);
-  border-radius: 50%;
-  background: radial-gradient(closest-side, var(--cyan-glow), transparent 75%);
-  filter: blur(5px);
-}
-
-@media (max-width: 680px) {
-  .claim__banner {
-    display: none;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .claim__btn:hover {
     transform: none;
   }
   .claim__btn-shine,
-  .claim__ring {
+  .claim__ring,
+  .claim__rays,
+  .claim__halo,
+  .claim__spark,
+  .claim__pedestal,
+  .claim__trophy-bob {
     animation: none;
   }
   .claim__trophy-bob {

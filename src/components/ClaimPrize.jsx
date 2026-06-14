@@ -1,6 +1,5 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import Trophy from './objects/Trophy'
 import useReducedMotion from '../hooks/useReducedMotion'
 import './ClaimPrize.css'
 
@@ -13,10 +12,16 @@ const CONFETTI = Array.from({ length: 22 }, (_, i) => ({
   size: 5 + (i % 3) * 2,
 }))
 
+// Sparkles framing the trophy.
+const SPARKS = [
+  { x: 16, y: 14, s: 1 }, { x: 84, y: 10, s: 0.8 }, { x: 8, y: 52, s: 0.7 },
+  { x: 92, y: 46, s: 1.1 }, { x: 28, y: 78, s: 0.7 }, { x: 74, y: 80, s: 0.9 },
+]
+
 /**
- * Claim Your Prize — a spotlit stage scene (per the supplied design): a
- * glassmorphic panel on a 3D podium under a spotlight, crowned by a glossy
- * gold trophy, with confetti, smoke and flanking STAR banners.
+ * Claim Your Prize — a reward-reveal: the STAR Trading League trophy on a
+ * glowing pedestal with light rays, halo and sparkles, inside a glass panel
+ * with a glossy CTA.
  *
  * @param {string} [href] - claim destination (swap for the real URL)
  */
@@ -28,7 +33,7 @@ export default function ClaimPrize({ href = '#claim' }) {
     target: ref,
     offset: ['start end', 'center center'],
   })
-  const trophyY = useTransform(scrollYProgress, [0, 1], [reduced ? 0 : 70, 0])
+  const trophyY = useTransform(scrollYProgress, [0, 1], [reduced ? 0 : 60, 0])
 
   return (
     <section className="section claim" id="claim" aria-labelledby="claim-title" ref={ref}>
@@ -65,10 +70,25 @@ export default function ClaimPrize({ href = '#claim' }) {
       >
         <span className="claim__beam" aria-hidden="true" />
 
-        <motion.div className="claim__trophy" style={{ y: trophyY }}>
+        {/* Trophy reveal */}
+        <motion.div className="claim__crown" style={{ y: trophyY }}>
+          <span className="claim__rays" aria-hidden="true" />
+          <span className="claim__halo" aria-hidden="true" />
+          {!reduced && (
+            <span className="claim__sparks" aria-hidden="true">
+              {SPARKS.map((p, i) => (
+                <span
+                  key={i}
+                  className="claim__spark"
+                  style={{ left: `${p.x}%`, top: `${p.y}%`, '--s': p.s, '--d': `${(i % 4) * 0.5}s` }}
+                />
+              ))}
+            </span>
+          )}
           <div className="claim__trophy-bob">
-            <Trophy size={118} />
+            <img className="claim__trophy-img" src="/champion-trophy.png" alt="" aria-hidden="true" />
           </div>
+          <span className="claim__pedestal" aria-hidden="true" />
         </motion.div>
 
         <h2 id="claim-title" className="section-title claim__title">
@@ -81,13 +101,6 @@ export default function ClaimPrize({ href = '#claim' }) {
           <span className="claim__btn-shine" aria-hidden="true" />
         </a>
       </motion.div>
-
-      {/* 3D podium base */}
-      <div className="claim__podium" aria-hidden="true">
-        <span className="claim__podium-top" />
-        <span className="claim__podium-mid" />
-        <span className="claim__podium-glow" />
-      </div>
     </section>
   )
 }
