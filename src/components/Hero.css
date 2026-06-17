@@ -20,7 +20,10 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 38%;
+  /* Anchor to the top so the NBA · STARTRADER lockup at the top of the
+     artwork is never cropped on wide/short viewports (crop falls at the
+     bottom instead, which sits behind the scrim + copy). */
+  object-position: center top;
   z-index: 0;
 }
 
@@ -294,7 +297,7 @@
     justify-content: flex-start;
   }
   .hero__bgimg {
-    object-position: center 32%;
+    object-position: center top;
   }
 }
 
