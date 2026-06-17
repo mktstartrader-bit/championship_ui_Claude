@@ -4,6 +4,9 @@ import Medal from './objects/Medal'
 import useReducedMotion from '../hooks/useReducedMotion'
 import './Champions.css'
 
+// Each winner: UID (from the championship board) + their Profit Rate.
+// Leave `profit` as '' to render an editable placeholder until the real
+// figure is dropped in.
 const TIERS = [
   {
     key: 'second',
@@ -13,6 +16,12 @@ const TIERS = [
     title: 'Second Place',
     meta: 'USD 200 NBA Store Voucher (4 person)',
     prizes: ['NBA Jersey or NBA Basketball Shoes — you choose.'],
+    winners: [
+      { uid: '345XXX', profit: '' },
+      { uid: '678XXX', profit: '' },
+      { uid: '789XXX', profit: '' },
+      { uid: '890XXX', profit: '' },
+    ],
   },
   {
     key: 'first',
@@ -27,6 +36,10 @@ const TIERS = [
       'NBA Signature Jersey',
       '$10,000 Cash Reward',
     ],
+    winners: [
+      { uid: '234XXX', profit: '' },
+      { uid: '567XXX', profit: '' },
+    ],
   },
   {
     key: 'third',
@@ -36,8 +49,36 @@ const TIERS = [
     title: 'Third Place',
     meta: 'USD 150 NBA Store Voucher (4 person)',
     prizes: ['NBA Jersey or NBA Basketball Shoes — you choose.'],
+    winners: [
+      { uid: '456XXX', profit: '' },
+      { uid: '901XXX', profit: '' },
+      { uid: '123XXX', profit: '' },
+      { uid: '789XXX', profit: '' },
+    ],
   },
 ]
+
+/** Person silhouette — matches the winner-chip icon in the board artwork. */
+function UserIcon() {
+  return (
+    <svg
+      className="winner__icon"
+      viewBox="0 0 24 24"
+      width="14"
+      height="14"
+      aria-hidden="true"
+    >
+      <circle cx="12" cy="8" r="4" fill="currentColor" />
+      <path
+        d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.4"
+        strokeLinecap="round"
+      />
+    </svg>
+  )
+}
 
 /** Pointer-tracked 3D tilt + diagonal shine sweep, reduced-motion safe. */
 function PrizeCard({ tier, reduced }) {
@@ -97,6 +138,33 @@ function PrizeCard({ tier, reduced }) {
             </li>
           ))}
         </ul>
+
+        {/* Winner roster — UID + Profit Rate per winner */}
+        <div className="winners">
+          <p className="winners__label">
+            Winners <span className="winners__count">{tier.winners.length}</span>
+          </p>
+          <ul className="winners__list">
+            {tier.winners.map((w, i) => (
+              <li key={`${w.uid}-${i}`} className="winner" data-slot="winner">
+                <span className="winner__id">
+                  <UserIcon />
+                  <span className="winner__id-label">UID:</span>
+                  <span className="winner__id-val">{w.uid}</span>
+                </span>
+                <span className="winner__rate">
+                  <span className="winner__rate-label">Profit Rate:</span>
+                  <span
+                    className={`winner__rate-val${w.profit ? '' : ' is-empty'}`}
+                    data-slot="profit-rate"
+                  >
+                    {w.profit || '—'}
+                  </span>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
 
         <span className="prize-card__shine" aria-hidden="true" />
       </article>

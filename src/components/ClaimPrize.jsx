@@ -36,7 +36,7 @@ export default function ClaimPrize({ href = '#claim' }) {
   const trophyY = useTransform(scrollYProgress, [0, 1], [reduced ? 0 : 60, 0])
 
   return (
-    <section className="section claim" id="claim" aria-labelledby="claim-title" ref={ref}>
+    <section className="section claim" id="claim" aria-label="Claim Your Prize" ref={ref}>
       {/* Clean futuristic stage ambience */}
       <div className="claim__stage" aria-hidden="true">
         <span className="claim__glow" />
@@ -62,7 +62,7 @@ export default function ClaimPrize({ href = '#claim' }) {
       </div>
 
       <motion.div
-        className="container claim__inner glass corner-brackets"
+        className="claim__inner glass corner-brackets"
         initial={{ opacity: 0, y: reduced ? 0 : 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.4 }}
@@ -90,10 +90,6 @@ export default function ClaimPrize({ href = '#claim' }) {
           </div>
           <span className="claim__pedestal" aria-hidden="true" />
         </motion.div>
-
-        <h2 id="claim-title" className="section-title claim__title">
-          Claim Your Prize
-        </h2>
 
         <a className="claim__btn" href={href}>
           <span className="claim__btn-label">Claim Your Prize</span>

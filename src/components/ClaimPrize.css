@@ -136,9 +136,9 @@
 .claim__inner {
   position: relative;
   z-index: 2;
-  max-width: 720px;
+  width: min(100%, 460px);
   margin-inline: auto;
-  padding: clamp(3.5rem, 7vw, 5rem) clamp(1.5rem, 5vw, 3.5rem) clamp(2.5rem, 5vw, 3.5rem);
+  padding: clamp(2.75rem, 5vw, 3.75rem) clamp(1.75rem, 4vw, 2.5rem) clamp(2.5rem, 4vw, 3rem);
   text-align: center;
   overflow: visible;
   display: flex;
@@ -152,9 +152,9 @@
   position: relative;
   display: grid;
   place-items: center;
-  width: clamp(220px, 36vw, 300px);
-  height: clamp(220px, 32vw, 280px);
-  margin-top: clamp(-5.5rem, -9vw, -4rem);
+  width: clamp(230px, 38vw, 310px);
+  height: clamp(190px, 27vw, 240px);
+  margin-top: clamp(-6rem, -10vw, -4.5rem);
   margin-bottom: 0.4rem;
 }
 
@@ -230,7 +230,7 @@
   animation: claim-trophy-float 5s ease-in-out infinite;
 }
 .claim__trophy-img {
-  height: clamp(150px, 24vw, 210px);
+  height: clamp(175px, 28vw, 240px);
   width: auto;
   filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.6))
     drop-shadow(0 0 22px rgba(22, 233, 215, 0.45));
@@ -272,8 +272,9 @@
   margin-top: 0.4rem;
   margin-bottom: 0.9rem;
 }
-.claim__title {
-  margin-bottom: 2rem;
+/* Heading removed — pull the CTA up close under the trophy */
+.claim__crown {
+  margin-bottom: clamp(0.5rem, 2vw, 1rem);
 }
 
 /* Rotating conic border beam */
@@ -324,8 +325,10 @@
   position: relative;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.7rem;
-  padding: 1rem 2.4rem;
+  width: min(100%, 300px);
+  padding: 1.05rem 2.4rem;
   border-radius: 999px;
   font-family: var(--font-body);
   font-weight: 700;
