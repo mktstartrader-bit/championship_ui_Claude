@@ -1,9 +1,8 @@
 import { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import useReducedMotion from '../hooks/useReducedMotion'
+import { useLang } from '../i18n/LanguageContext'
 import './Hero.css'
-
-const HEADLINE_LINES = ['The Season Has', 'Reached Its', 'Final Moment']
 
 const FIREWORKS = [
   { x: '9%', y: '22%', delay: '0s', r: '96px', color: 'var(--cyan)' },
@@ -21,6 +20,7 @@ const BURST_COLORS = ['var(--cyan)', '#e8c45a', '#6aa6ff', '#ff7eb6']
 
 export default function Hero() {
   const reduced = useReducedMotion()
+  const { t } = useLang()
   const [posterOk, setPosterOk] = useState(true)
 
   // Cursor-triggered fireworks
@@ -104,9 +104,9 @@ export default function Hero() {
       {/* Bottom overlay: heading (left) + content (right) */}
       <div className="hero__overlay container">
         <motion.div className="hero__heading-col" {...rise(0.2)}>
-          <p className="eyebrow hero__eyebrow">STAR TRADING LEAGUE</p>
+          <p className="eyebrow hero__eyebrow">{t('hero.eyebrow')}</p>
           <h1 id="hero-title" className="hero__title">
-            {HEADLINE_LINES.map((line) => (
+            {t('hero.headline').map((line) => (
               <span className="hero__line" key={line}>
                 {line}
               </span>
@@ -115,14 +115,11 @@ export default function Hero() {
         </motion.div>
 
         <motion.div className="hero__content-col" {...rise(0.34)}>
-          <p className="hero__sub">
-            The buzzer has sounded. The bracket is complete. 30 teams to 1: the
-            ultimate trading MVP has been determined.
-          </p>
+          <p className="hero__sub">{t('hero.sub')}</p>
           <div className="hero__chip">
-            <span className="hero__chip-label">Tournament Period</span>
-            <span className="hero__chip-value">1 June 2026 – 13 August 2026</span>
-            <span className="hero__chip-state">Concluded</span>
+            <span className="hero__chip-label">{t('hero.chipLabel')}</span>
+            <span className="hero__chip-value">{t('hero.chipValue')}</span>
+            <span className="hero__chip-state">{t('hero.chipState')}</span>
           </div>
         </motion.div>
       </div>

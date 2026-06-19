@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import CursorFireworks from './effects/CursorFireworks'
 import useReducedMotion from '../hooks/useReducedMotion'
+import { useLang } from '../i18n/LanguageContext'
 import './MoreThanTournament.css'
 
 /**
@@ -9,6 +10,7 @@ import './MoreThanTournament.css'
  */
 export default function MoreThanTournament() {
   const reduced = useReducedMotion()
+  const { t } = useLang()
 
   const fade = (i = 0) => ({
     initial: { opacity: 0, y: reduced ? 0 : 16 },
@@ -23,21 +25,19 @@ export default function MoreThanTournament() {
 
       <div className="container more__inner">
         <motion.h2 id="more-title" className="section-title more__title" {...fade(0)}>
-          More Than a Tournament
+          {t('more.title')}
         </motion.h2>
 
         <motion.p className="more__lead" {...fade(1)}>
-          The STAR Trading League: A competition defined by market performance and
-          competitive spirit.
+          {t('more.lead')}
         </motion.p>
 
         <motion.p className="more__line" {...fade(2)}>
-          You competed. You represented. You traded.
+          {t('more.line1')}
         </motion.p>
 
         <motion.p className="more__line more__line--mute" {...fade(3)}>
-          Whether you made it to the finals or fell in the early rounds, every
-          participant was part of something bigger.
+          {t('more.line2')}
         </motion.p>
       </div>
     </section>

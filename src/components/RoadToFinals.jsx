@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import useReducedMotion from '../hooks/useReducedMotion'
+import { useLang } from '../i18n/LanguageContext'
 import './RoadToFinals.css'
 
 /**
@@ -13,12 +14,13 @@ import './RoadToFinals.css'
  * viewBox 1000×540 so nodes sit exactly on the path). On narrow screens
  * the same items reflow into a vertical timeline (see CSS).
  */
+// `tkey` maps each stage to its translation keys (road.<tkey>.name|east|west).
 const STAGES = [
-  { name: 'Regular Season', total: 30, east: 'Eastern Conference · 15 Teams', west: 'Western Conference · 15 Teams', x: 6.2, y: 80.0, side: 'below', anchor: 'left' },
-  { name: 'Playoff', total: 16, east: 'Eastern Conference · 8 Teams', west: 'Western Conference · 8 Teams', x: 25.0, y: 57.8, side: 'above', anchor: 'center' },
-  { name: 'Quarter Finals', total: 8, east: 'Eastern Conference · 4 Teams', west: 'Western Conference · 4 Teams', x: 43.8, y: 68.9, side: 'below', anchor: 'center' },
-  { name: 'Semi-Finals', total: 4, east: 'Eastern Conference · 2 Teams', west: 'Western Conference · 2 Teams', x: 62.8, y: 45.9, side: 'above', anchor: 'center' },
-  { name: 'MVP Finals', total: 2, east: 'Eastern Conference · Finalist', west: 'Western Conference · Finalist', x: 81.2, y: 36.3, side: 'below', anchor: 'center' },
+  { tkey: 'regular', total: 30, x: 6.2, y: 80.0, side: 'below', anchor: 'left' },
+  { tkey: 'playoff', total: 16, x: 25.0, y: 57.8, side: 'above', anchor: 'center' },
+  { tkey: 'quarter', total: 8, x: 43.8, y: 68.9, side: 'below', anchor: 'center' },
+  { tkey: 'semi', total: 4, x: 62.8, y: 45.9, side: 'above', anchor: 'center' },
+  { tkey: 'mvp', total: 2, x: 81.2, y: 36.3, side: 'below', anchor: 'center' },
 ]
 
 const CHAMP = { x: 94.0, y: 17.0 }
@@ -36,6 +38,7 @@ const SPARKS = [
 
 export default function RoadToFinals() {
   const reduced = useReducedMotion()
+  const { t } = useLang()
   const [lit, setLit] = useState(false)
 
   const draw = reduced
@@ -60,7 +63,7 @@ export default function RoadToFinals() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
           <h2 id="road-title" className="section-title">
-            The Road to the Finals
+            {t('road.title')}
           </h2>
         </motion.div>
 
@@ -132,7 +135,7 @@ export default function RoadToFinals() {
           {/* Milestone stage nodes */}
           {STAGES.map((s, i) => (
             <motion.div
-              key={s.name}
+              key={s.tkey}
               className={`road__item road__item--${s.side} road__item--${s.anchor}`}
               style={{ left: `${s.x}%`, top: `${s.y}%` }}
               {...nodePop(i)}
@@ -142,9 +145,9 @@ export default function RoadToFinals() {
                 <span className="road__node-core">{s.total}</span>
               </span>
               <div className="road__card glass">
-                <h3 className="road__name">{s.name}</h3>
-                <p className="road__split">{s.east}</p>
-                <p className="road__split">{s.west}</p>
+                <h3 className="road__name">{t(`road.${s.tkey}.name`)}</h3>
+                <p className="road__split">{t(`road.${s.tkey}.east`)}</p>
+                <p className="road__split">{t(`road.${s.tkey}.west`)}</p>
               </div>
             </motion.div>
           ))}
@@ -167,7 +170,7 @@ export default function RoadToFinals() {
               )}
             </span>
             <div className="road__card road__card--champ glass corner-brackets">
-              <h3 className="road__name">MVP Champion</h3>
+              <h3 className="road__name">{t('road.champion')}</h3>
             </div>
           </motion.div>
         </motion.div>

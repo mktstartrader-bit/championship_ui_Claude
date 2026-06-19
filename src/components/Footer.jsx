@@ -1,15 +1,14 @@
+import { useLang } from '../i18n/LanguageContext'
 import './Footer.css'
 
 export default function Footer() {
+  const { t } = useLang()
   return (
     <footer className="footer">
       <span className="footer__ghost" aria-hidden="true">STARTRADER</span>
       <div className="container footer__inner">
-        <p className="footer__tagline">
-          Strategy. Skill. Squad. The STAR Trading League: where the market meets
-          the court.
-        </p>
-        <p className="footer__signoff">Stay tuned for the next season.</p>
+        <p className="footer__tagline">{t('footer.tagline')}</p>
+        <p className="footer__signoff">{t('footer.signoff')}</p>
 
         <div className="footer__baseline">
           <img className="footer__logo" src="/startrader-logo.svg" alt="STARTRADER" />

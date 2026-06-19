@@ -50,9 +50,12 @@
      whole site. The "mono" token is kept as an alias (used by HUD labels
      for their letter-spacing/uppercase styling) but now also resolves to
      Plus Jakarta so no text falls outside the brand face. */
-  --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  --font-mono: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, 'PingFang SC',
+    'Microsoft YaHei', 'Noto Sans CJK SC', 'Hiragino Sans GB', sans-serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, 'PingFang SC',
+    'Microsoft YaHei', 'Noto Sans CJK SC', 'Hiragino Sans GB', sans-serif;
+  --font-mono: 'Plus Jakarta Sans', system-ui, -apple-system, 'PingFang SC',
+    'Microsoft YaHei', 'Noto Sans CJK SC', 'Hiragino Sans GB', sans-serif;
 
   /* Type scale (fluid) */
   --fs-display: clamp(2.5rem, 6.2vw, 5.1rem);

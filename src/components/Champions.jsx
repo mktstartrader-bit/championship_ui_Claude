@@ -2,8 +2,11 @@ import { useRef } from 'react'
 import { motion } from 'framer-motion'
 import Medal from './objects/Medal'
 import useReducedMotion from '../hooks/useReducedMotion'
+import { useLang } from '../i18n/LanguageContext'
 import './Champions.css'
 
+// Tier structure + winner UIDs. Title / meta / prizes are pulled from the
+// translation dictionary by `key` (tier.<key>.title|meta|prizes).
 // Each winner: UID (from the championship board) + their Profit Rate.
 // Leave `profit` as '' to render an editable placeholder until the real
 // figure is dropped in.
@@ -13,9 +16,6 @@ const TIERS = [
     rank: 2,
     placeClass: 'is-second',
     crown: <Medal variant="silver" place="2" size={84} />,
-    title: 'Second Place',
-    meta: 'USD 200 NBA Store Voucher (4 person)',
-    prizes: ['NBA Jersey or NBA Basketball Shoes — you choose.'],
     winners: [
       { uid: '345XXX', profit: '' },
       { uid: '678XXX', profit: '' },
@@ -28,14 +28,6 @@ const TIERS = [
     rank: 1,
     placeClass: 'is-first',
     crown: <Medal variant="gold" place="1" size={96} />,
-    title: 'Grand Prize Winners',
-    meta: 'Top 2',
-    prizes: [
-      'NBA Tickets',
-      'Basketball Gift Set',
-      'NBA Signature Jersey',
-      '$10,000 Cash Reward',
-    ],
     winners: [
       { uid: '234XXX', profit: '' },
       { uid: '567XXX', profit: '' },
@@ -46,9 +38,6 @@ const TIERS = [
     rank: 3,
     placeClass: 'is-third',
     crown: <Medal variant="sand" place="3" size={84} />,
-    title: 'Third Place',
-    meta: 'USD 150 NBA Store Voucher (4 person)',
-    prizes: ['NBA Jersey or NBA Basketball Shoes — you choose.'],
     winners: [
       { uid: '456XXX', profit: '' },
       { uid: '901XXX', profit: '' },
@@ -82,6 +71,7 @@ function UserIcon() {
 
 /** Pointer-tracked 3D tilt + diagonal shine sweep, reduced-motion safe. */
 function PrizeCard({ tier, reduced }) {
+  const { t } = useLang()
   const ref = useRef(null)
 
   function onMove(e) {
@@ -125,13 +115,13 @@ function PrizeCard({ tier, reduced }) {
         <header className="prize-card__head">
           <span className="prize-card__rank">{tier.rank}</span>
           <div>
-            <h3 className="prize-card__title">{tier.title}</h3>
-            <p className="prize-card__meta">{tier.meta}</p>
+            <h3 className="prize-card__title">{t(`tier.${tier.key}.title`)}</h3>
+            <p className="prize-card__meta">{t(`tier.${tier.key}.meta`)}</p>
           </div>
         </header>
 
         <ul className="prize-card__list">
-          {tier.prizes.map((p) => (
+          {t(`tier.${tier.key}.prizes`).map((p) => (
             <li key={p} className="prize-card__item">
               <span className="prize-card__bullet" aria-hidden="true" />
               {p}
@@ -142,18 +132,19 @@ function PrizeCard({ tier, reduced }) {
         {/* Winner roster — UID + Profit Rate per winner */}
         <div className="winners">
           <p className="winners__label">
-            Winners <span className="winners__count">{tier.winners.length}</span>
+            {t('champions.winners')}{' '}
+            <span className="winners__count">{tier.winners.length}</span>
           </p>
           <ul className="winners__list">
             {tier.winners.map((w, i) => (
               <li key={`${w.uid}-${i}`} className="winner" data-slot="winner">
                 <span className="winner__id">
                   <UserIcon />
-                  <span className="winner__id-label">UID:</span>
+                  <span className="winner__id-label">{t('champions.uid')}</span>
                   <span className="winner__id-val">{w.uid}</span>
                 </span>
                 <span className="winner__rate">
-                  <span className="winner__rate-label">Profit Rate:</span>
+                  <span className="winner__rate-label">{t('champions.profitRate')}</span>
                   <span
                     className={`winner__rate-val${w.profit ? '' : ' is-empty'}`}
                     data-slot="profit-rate"
@@ -179,6 +170,7 @@ function PrizeCard({ tier, reduced }) {
 
 export default function Champions() {
   const reduced = useReducedMotion()
+  const { t } = useLang()
 
   return (
     <section className="section champions" id="champions" aria-labelledby="champions-title">
@@ -198,18 +190,15 @@ export default function Champions() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
           <h2 id="champions-title" className="section-title">
-            Meet Your MVP Champions
+            {t('champions.title')}
           </h2>
 
           {/* Editable placeholder slot for the real team name */}
           <p className="champions__placeholder" data-slot="champion-name">
-            [Insert Champion Team Name &amp; Conference]
+            {t('champions.placeholder')}
           </p>
 
-          <p className="champions__body">
-            Most teams competed. They dominated. The team with the highest profit
-            rate across all 5 stages of the STAR Trading League.
-          </p>
+          <p className="champions__body">{t('champions.body')}</p>
         </motion.div>
 
         <ol className="podium" aria-label="Prize podium">

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { useLang } from '../i18n/LanguageContext'
 import './LanguageSelector.css'
 
 // Code + native label. EN is the default (page language); the rest are the
@@ -25,7 +26,7 @@ const LANGS = [
 
 export default function LanguageSelector() {
   const [open, setOpen] = useState(false)
-  const [current, setCurrent] = useState('EN')
+  const { lang: current, setLang } = useLang()
   const ref = useRef(null)
 
   useEffect(() => {
@@ -79,7 +80,7 @@ export default function LanguageSelector() {
                 aria-selected={current === l.code}
                 className={`lang__item ${current === l.code ? 'is-active' : ''}`}
                 onClick={() => {
-                  setCurrent(l.code)
+                  setLang(l.code)
                   setOpen(false)
                 }}
               >
