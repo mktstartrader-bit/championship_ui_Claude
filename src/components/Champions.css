@@ -88,11 +88,13 @@
   color: var(--text-mute);
 }
 
-/* CN: honour the explicit line breaks in the champion copy */
-html[lang='cn'] .champions__placeholder {
+/* CN/TW: honour the explicit line breaks in the champion copy */
+html[lang='cn'] .champions__placeholder,
+html[lang='tw'] .champions__placeholder {
   white-space: nowrap;
 }
-html[lang='cn'] .champions__body {
+html[lang='cn'] .champions__body,
+html[lang='tw'] .champions__body {
   white-space: pre-line;
 }
 
