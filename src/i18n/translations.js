@@ -431,4 +431,560 @@ export const translations = {
       'Strategi. Keahlian. Tim. Liga Trading STAR: di mana pasar bertemu dengan lapangan.',
     'footer.signoff': 'Nantikan musim berikutnya.',
   },
+
+  // 한국어 — verbatim from the reference sheet.
+  KR: {
+    'hero.eyebrow': '스타 트레이딩 리그',
+    'hero.headline': ['시즌이 마침내 마지막 순간에 도달했습니다'],
+    'hero.sub':
+      '버저가 울렸습니다. 대진표가 완성되었습니다. 30개 팀에서 단 1개 팀으로: 최종 트레이딩 MVP가 결정되었습니다.',
+    'hero.chipLabel': '대회 기간',
+    'hero.chipValue': '2026년 6월 1일 – 2026년 8월 13일',
+    'hero.chipState': '종료',
+
+    'champions.title': 'MVP 챔피언을 만나보세요',
+    'champions.placeholder': '[Insert Champion Team Name & Conference]',
+    'champions.body':
+      '대부분의 팀이 참가했고, 그들은 대회를 지배했습니다. 스타 트레이딩 리그의 5개 모든 스테이지에서 가장 높은 수익률을 기록한 팀입니다.',
+    'champions.winners': '수상자',
+    'champions.profitRate': '수익률:',
+    'champions.uid': 'UID:',
+
+    'tier.first.title': '그랜드 프라이즈 수상팀',
+    'tier.first.meta': '상위 2팀',
+    'tier.first.prizes': ['NBA 티켓', '농구 기프트 세트', 'NBA 친필 사인 저지', '현금 보상 US$10,000'],
+    'tier.second.title': '2위',
+    'tier.second.meta': 'NBA Store 상품권 US$200 (4명)',
+    'tier.second.prizes': ['NBA 저지 또는 NBA 농구화 — 원하는 상품을 선택하세요.'],
+    'tier.third.title': '3위',
+    'tier.third.meta': 'NBA Store 상품권 US$150 (4명)',
+    'tier.third.prizes': ['NBA 저지 또는 NBA 농구화 — 원하는 상품을 선택하세요.'],
+
+    'road.title': '파이널까지의 여정',
+    'road.regular.name': '정규 시즌',
+    'road.regular.east': '동부 컨퍼런스 – 15개 팀',
+    'road.regular.west': '서부 컨퍼런스 – 15개 팀',
+    'road.playoff.name': '플레이오프',
+    'road.playoff.east': '동부 컨퍼런스 – 8개 팀',
+    'road.playoff.west': '서부 컨퍼런스 – 8개 팀',
+    'road.quarter.name': '8강전',
+    'road.quarter.east': '동부 컨퍼런스 – 4개 팀',
+    'road.quarter.west': '서부 컨퍼런스 – 4개 팀',
+    'road.semi.name': '준결승',
+    'road.semi.east': '동부 컨퍼런스 – 2개 팀',
+    'road.semi.west': '서부 컨퍼런스 – 2개 팀',
+    'road.mvp.name': 'MVP 결승',
+    'road.mvp.east': '동부 컨퍼런스 – 결승 진출팀',
+    'road.mvp.west': '서부 컨퍼런스 – 결승 진출팀',
+    'road.champion': 'MVP 챔피언',
+
+    'more.title': '단순한 토너먼트 그 이상',
+    'more.lead': '스타 트레이딩 리그: 시장 성과와 경쟁 정신으로 정의되는 대회.',
+    'more.line1': '당신은 경쟁했습니다. 대표했습니다. 거래했습니다.',
+    'more.line2': '결승에 진출했든 초반에 탈락했든, 모든 참가자는 더 큰 무언가의 일부였습니다.',
+
+    'footer.tagline': '전략. 실력. 팀. 스타 트레이딩 리그: 시장과 코트가 만나는 곳.',
+    'footer.signoff': '다음 시즌을 기대해 주세요.',
+  },
+
+  // 日本語 — verbatim from the reference sheet.
+  JP: {
+    'hero.eyebrow': 'STAR トレーディング リーグ',
+    'hero.headline': ['シーズンはいよいよ最終局面を迎えました'],
+    'hero.sub':
+      'ブザーが鳴り響きました。トーナメント表が完成しました。30チームから1チームへ：究極のトレーディングMVPが決定しました。',
+    'hero.chipLabel': '大会期間',
+    'hero.chipValue': '2026年6月1日～2026年8月13日',
+    'hero.chipState': '終了',
+
+    'champions.title': 'MVPチャンピオンをご紹介します',
+    'champions.placeholder': '[Insert Champion Team Name & Conference]',
+    'champions.body':
+      '多くのチームが競い合い、圧倒的な実力を見せました。STAR トレーディング リーグの全5ステージを通じて最高の利益率を達成したチームです。',
+    'champions.winners': '受賞者',
+    'champions.profitRate': '利益率:',
+    'champions.uid': 'UID:',
+
+    'tier.first.title': 'グランドプライズ受賞者',
+    'tier.first.meta': '上位2チーム',
+    'tier.first.prizes': [
+      'NBA観戦チケット',
+      'バスケットボールギフトセット',
+      'NBA直筆サイン入りジャージ',
+      '現金賞金10,000米ドル',
+    ],
+    'tier.second.title': '第2位',
+    'tier.second.meta': 'NBA Store 200米ドル分バウチャー（4名）',
+    'tier.second.prizes': ['NBAジャージまたはNBAバスケットボールシューズ、お好きな方をお選びください。'],
+    'tier.third.title': '第3位',
+    'tier.third.meta': 'NBA Store 150米ドル分バウチャー（4名）',
+    'tier.third.prizes': ['NBAジャージまたはNBAバスケットボールシューズ、お好きな方をお選びください。'],
+
+    'road.title': '決勝への道のり',
+    'road.regular.name': 'レギュラーシーズン',
+    'road.regular.east': '東・カンファレンス – 15チーム',
+    'road.regular.west': '西・カンファレンス – 15チーム',
+    'road.playoff.name': 'プレーオフ',
+    'road.playoff.east': '東・カンファレンス – 8チーム',
+    'road.playoff.west': '西・カンファレンス – 8チーム',
+    'road.quarter.name': '準々決勝',
+    'road.quarter.east': '東・カンファレンス – 4チーム',
+    'road.quarter.west': '西・カンファレンス – 4チーム',
+    'road.semi.name': '準決勝',
+    'road.semi.east': '東・カンファレンス – 2チーム',
+    'road.semi.west': '西・カンファレンス – 2チーム',
+    'road.mvp.name': 'MVP決勝',
+    'road.mvp.east': '東・カンファレンス – ファイナリスト',
+    'road.mvp.west': '西・カンファレンス – ファイナリスト',
+    'road.champion': 'MVPチャンピオン',
+
+    'more.title': 'トーナメント以上のもの',
+    'more.lead': 'STAR トレーディング リーグ：市場のパフォーマンスと競争精神によって定義される大会。',
+    'more.line1': 'あなたは競いました。代表しました。トレードしました。',
+    'more.line2': '決勝に進んでも、序盤で敗退しても、すべての参加者はより大きな何かの一部でした。',
+
+    'footer.tagline': '戦略。スキル。チーム。STAR トレーディング リーグ：市場とコートが交わる場所。',
+    'footer.signoff': '次のシーズンをお楽しみに。',
+  },
+
+  // Français — verbatim from the reference sheet.
+  FR: {
+    'hero.eyebrow': 'Ligue de Trading STAR',
+    'hero.headline': ['La Saison Est Arrivée À Son Dernier Moment'],
+    'hero.sub':
+      'Le buzzer a retenti. Le tableau du tournoi est désormais complet. De 30 équipes à 1 seule : le MVP ultime du trading a été désigné.',
+    'hero.chipLabel': 'Période du tournoi',
+    'hero.chipValue': '1 juin 2026 – 13 août 2026',
+    'hero.chipState': 'Terminé',
+
+    'champions.title': 'Découvrez Vos Champions MVP',
+    'champions.placeholder': '[Insert Champion Team Name & Conference]',
+    'champions.body':
+      'La plupart des équipes ont participé. Elles ont dominé la compétition. L’équipe ayant obtenu le taux de profit le plus élevé sur l’ensemble des 5 étapes de la Ligue de Trading STAR.',
+    'champions.winners': 'Gagnants',
+    'champions.profitRate': 'Taux de Profit :',
+    'champions.uid': 'UID :',
+
+    'tier.first.title': 'Gagnants du Grand Prix',
+    'tier.first.meta': 'Top 2',
+    'tier.first.prizes': [
+      'Billets NBA',
+      'Coffret Cadeau Basketball',
+      'Maillot NBA Dédicacé',
+      'Récompense en Espèces de 10 000 USD',
+    ],
+    'tier.second.title': 'Deuxième Place',
+    'tier.second.meta': 'Bon d’Achat NBA Store de 200 USD (4 personnes)',
+    'tier.second.prizes': ['Maillot NBA ou Chaussures de Basketball NBA — à vous de choisir.'],
+    'tier.third.title': 'Troisième Place',
+    'tier.third.meta': 'Bon d’Achat NBA Store de 150 USD (4 personnes)',
+    'tier.third.prizes': ['Maillot NBA ou Chaussures de Basketball NBA — à vous de choisir.'],
+
+    'road.title': 'La Route Vers La Finale',
+    'road.regular.name': 'Saison Régulière',
+    'road.regular.east': 'CONFÉRENCE EST – 15 équipes',
+    'road.regular.west': 'CONFÉRENCE OUEST – 15 équipes',
+    'road.playoff.name': 'Playoffs',
+    'road.playoff.east': 'CONFÉRENCE EST – 8 équipes',
+    'road.playoff.west': 'CONFÉRENCE OUEST – 8 équipes',
+    'road.quarter.name': 'Quarts de Finale',
+    'road.quarter.east': 'CONFÉRENCE EST – 4 équipes',
+    'road.quarter.west': 'CONFÉRENCE OUEST – 4 équipes',
+    'road.semi.name': 'Demi-Finales',
+    'road.semi.east': 'CONFÉRENCE EST – 2 équipes',
+    'road.semi.west': 'CONFÉRENCE OUEST – 2 équipes',
+    'road.mvp.name': 'Finale MVP',
+    'road.mvp.east': 'CONFÉRENCE EST – Finaliste',
+    'road.mvp.west': 'CONFÉRENCE OUEST – Finaliste',
+    'road.champion': 'Champion MVP',
+
+    'more.title': 'Plus qu’un tournoi',
+    'more.lead':
+      'Ligue de Trading STAR : une compétition définie par la performance du marché et l’esprit de compétition.',
+    'more.line1': 'Vous avez concouru. Vous avez représenté. Vous avez tradé.',
+    'more.line2':
+      'Que vous ayez atteint la finale ou été éliminé en début de parcours, chaque participant faisait partie de quelque chose de plus grand.',
+
+    'footer.tagline':
+      'Stratégie. Compétence. Équipe. Ligue de Trading STAR : là où le marché rencontre le terrain.',
+    'footer.signoff': 'Restez connectés pour la prochaine saison.',
+  },
+
+  // Español — verbatim from the reference sheet.
+  ES: {
+    'hero.eyebrow': 'Liga de Trading STAR',
+    'hero.headline': ['La Temporada Ha Llegado A Su Momento Final'],
+    'hero.sub':
+      'El timbre final ha sonado. El cuadro del torneo está completo. De 30 equipos a 1: ya se ha determinado el MVP definitivo del trading.',
+    'hero.chipLabel': 'Período del torneo',
+    'hero.chipValue': '1 de junio de 2026 – 13 de agosto de 2026',
+    'hero.chipState': 'Finalizado',
+
+    'champions.title': 'Conoce A Tus Campeones MVP',
+    'champions.placeholder': '[Insert Champion Team Name & Conference]',
+    'champions.body':
+      'La mayoría de los equipos compitieron. Dominaron la competición. El equipo con la mayor tasa de ganancias a lo largo de las 5 etapas de la Liga de Trading STAR.',
+    'champions.winners': 'Ganadores',
+    'champions.profitRate': 'Tasa de Ganancia:',
+    'champions.uid': 'UID:',
+
+    'tier.first.title': 'Ganadores del Gran Premio',
+    'tier.first.meta': 'Top 2',
+    'tier.first.prizes': [
+      'Entradas NBA',
+      'Set de Regalo de Baloncesto',
+      'Camiseta NBA Firmada',
+      'Premio en Efectivo de USD 10.000',
+    ],
+    'tier.second.title': 'Segundo Lugar',
+    'tier.second.meta': 'Vale de NBA Store por USD 200 (4 personas)',
+    'tier.second.prizes': ['Camiseta NBA o Zapatillas de Baloncesto NBA — tú eliges.'],
+    'tier.third.title': 'Tercer Lugar',
+    'tier.third.meta': 'Vale de NBA Store por USD 150 (4 personas)',
+    'tier.third.prizes': ['Camiseta NBA o Zapatillas de Baloncesto NBA — tú eliges.'],
+
+    'road.title': 'El Camino Hacia La Final',
+    'road.regular.name': 'Temporada Regular',
+    'road.regular.east': 'CONFERENCIA ESTE – 15 equipos',
+    'road.regular.west': 'CONFERENCIA OESTE – 15 equipos',
+    'road.playoff.name': 'Playoffs',
+    'road.playoff.east': 'CONFERENCIA ESTE – 8 equipos',
+    'road.playoff.west': 'CONFERENCIA OESTE – 8 equipos',
+    'road.quarter.name': 'Cuartos de Final',
+    'road.quarter.east': 'CONFERENCIA ESTE – 4 equipos',
+    'road.quarter.west': 'CONFERENCIA OESTE – 4 equipos',
+    'road.semi.name': 'Semifinales',
+    'road.semi.east': 'CONFERENCIA ESTE – 2 equipos',
+    'road.semi.west': 'CONFERENCIA OESTE – 2 equipos',
+    'road.mvp.name': 'Final MVP',
+    'road.mvp.east': 'CONFERENCIA ESTE – Finalista',
+    'road.mvp.west': 'CONFERENCIA OESTE – Finalista',
+    'road.champion': 'Campeón MVP',
+
+    'more.title': 'Más que un torneo',
+    'more.lead':
+      'Liga de Trading STAR: una competición definida por el rendimiento del mercado y el espíritu competitivo.',
+    'more.line1': 'Competiste. Te representaste. Operaste.',
+    'more.line2':
+      'Tanto si llegaste a las finales como si caíste en las primeras rondas, cada participante formó parte de algo más grande.',
+
+    'footer.tagline':
+      'Estrategia. Habilidad. Equipo. Liga de Trading STAR: donde el mercado se encuentra con la cancha.',
+    'footer.signoff': 'Estad atentos a la próxima temporada.',
+  },
+
+  // Português — verbatim from the reference sheet.
+  PT: {
+    'hero.eyebrow': 'Liga de Trading STAR',
+    'hero.headline': ['A Temporada Chegou Ao Seu Momento Final'],
+    'hero.sub':
+      'O sinal final soou. A chave do torneio está completa. De 30 equipas para 1: o MVP máximo de trading foi determinado.',
+    'hero.chipLabel': 'Período do torneio',
+    'hero.chipValue': '1 de junho de 2026 – 13 de agosto de 2026',
+    'hero.chipState': 'Concluído',
+
+    'champions.title': 'Conheça Os Seus Campeões MVP',
+    'champions.placeholder': '[Insert Champion Team Name & Conference]',
+    'champions.body':
+      'A maioria das equipas competiu. Dominaram a competição. A equipa com a maior taxa de lucro ao longo das 5 etapas da Liga de Trading STAR.',
+    'champions.winners': 'Vencedores',
+    'champions.profitRate': 'Taxa de Lucro:',
+    'champions.uid': 'UID:',
+
+    'tier.first.title': 'Vencedores do Grande Prémio',
+    'tier.first.meta': 'Top 2',
+    'tier.first.prizes': [
+      'Bilhetes NBA',
+      'Conjunto de Oferta de Basquetebol',
+      'Camisola NBA Autografada',
+      'Prémio Monetário de USD 10.000',
+    ],
+    'tier.second.title': 'Segundo Lugar',
+    'tier.second.meta': 'Vale NBA Store de USD 200 (4 pessoas)',
+    'tier.second.prizes': ['Camisola NBA ou Ténis de Basquetebol NBA — a escolha é sua.'],
+    'tier.third.title': 'Terceiro Lugar',
+    'tier.third.meta': 'Vale NBA Store de USD 150 (4 pessoas)',
+    'tier.third.prizes': ['Camisola NBA ou Ténis de Basquetebol NBA — a escolha é sua.'],
+
+    'road.title': 'O Caminho Para A Final',
+    'road.regular.name': 'Época Regular',
+    'road.regular.east': 'CONFERÊNCIA ESTE – 15 equipas',
+    'road.regular.west': 'CONFERÊNCIA OESTE – 15 equipas',
+    'road.playoff.name': 'Playoffs',
+    'road.playoff.east': 'CONFERÊNCIA ESTE – 8 equipas',
+    'road.playoff.west': 'CONFERÊNCIA OESTE – 8 equipas',
+    'road.quarter.name': 'Quartos de Final',
+    'road.quarter.east': 'CONFERÊNCIA ESTE – 4 equipas',
+    'road.quarter.west': 'CONFERÊNCIA OESTE – 4 equipas',
+    'road.semi.name': 'Meias-Finais',
+    'road.semi.east': 'CONFERÊNCIA ESTE – 2 equipas',
+    'road.semi.west': 'CONFERÊNCIA OESTE – 2 equipas',
+    'road.mvp.name': 'Final MVP',
+    'road.mvp.east': 'CONFERÊNCIA ESTE – Finalista',
+    'road.mvp.west': 'CONFERÊNCIA OESTE – Finalista',
+    'road.champion': 'Campeão MVP',
+
+    'more.title': 'Mais do que um torneio',
+    'more.lead':
+      'Liga de Trading STAR: Uma competição definida pelo desempenho no mercado e pelo espírito competitivo.',
+    'more.line1': 'Competiste. Representaste. Negociaste.',
+    'more.line2':
+      'Quer tenhas chegado às finais ou saído nas primeiras rondas, cada participante fez parte de algo maior.',
+
+    'footer.tagline':
+      'Estratégia. Competência. Equipa. Liga de Trading STAR: onde o mercado encontra o campo.',
+    'footer.signoff': 'Fiquem atentos à próxima época.',
+  },
+
+  // Deutsch — verbatim from the reference sheet.
+  DE: {
+    'hero.eyebrow': 'STAR Trading-Liga',
+    'hero.headline': ['Die Saison Hat Ihren Letzten Moment Erreicht'],
+    'hero.sub':
+      'Der Buzzer hat ertönt. Der Turnierbaum ist vollständig. Von 30 Teams auf 1: Der ultimative Trading-MVP steht fest.',
+    'hero.chipLabel': 'Turnierzeitraum',
+    'hero.chipValue': '1. Juni 2026 – 13. August 2026',
+    'hero.chipState': 'Abgeschlossen',
+
+    'champions.title': 'Lernen Sie Ihre MVP-Champions Kennen',
+    'champions.placeholder': '[Insert Champion Team Name & Conference]',
+    'champions.body':
+      'Die meisten Teams haben teilgenommen. Sie dominierten den Wettbewerb. Das Team mit der höchsten Gewinnrate über alle 5 Phasen der STAR Trading League hinweg.',
+    'champions.winners': 'Gewinner',
+    'champions.profitRate': 'Gewinnrate:',
+    'champions.uid': 'UID:',
+
+    'tier.first.title': 'Gewinner Des Hauptpreises',
+    'tier.first.meta': 'Top 2',
+    'tier.first.prizes': [
+      'NBA-Tickets',
+      'Basketball-Geschenkset',
+      'Signiertes NBA-Trikot',
+      '10.000 USD Bargeldprämie',
+    ],
+    'tier.second.title': 'Zweiter Platz',
+    'tier.second.meta': 'NBA Store Gutschein im Wert von 200 USD (4 Personen)',
+    'tier.second.prizes': ['NBA-Trikot oder NBA-Basketballschuhe — Sie haben die Wahl.'],
+    'tier.third.title': 'Dritter Platz',
+    'tier.third.meta': 'NBA Store Gutschein im Wert von 150 USD (4 Personen)',
+    'tier.third.prizes': ['NBA-Trikot oder NBA-Basketballschuhe — Sie haben die Wahl.'],
+
+    'road.title': 'Der Weg Ins Finale',
+    'road.regular.name': 'Reguläre Saison',
+    'road.regular.east': 'EASTERN CONFERENCE – 15 Teams',
+    'road.regular.west': 'WESTERN CONFERENCE – 15 Teams',
+    'road.playoff.name': 'Playoffs',
+    'road.playoff.east': 'EASTERN CONFERENCE – 8 Teams',
+    'road.playoff.west': 'WESTERN CONFERENCE – 8 Teams',
+    'road.quarter.name': 'Viertelfinale',
+    'road.quarter.east': 'EASTERN CONFERENCE – 4 Teams',
+    'road.quarter.west': 'WESTERN CONFERENCE – 4 Teams',
+    'road.semi.name': 'Halbfinale',
+    'road.semi.east': 'EASTERN CONFERENCE – 2 Teams',
+    'road.semi.west': 'WESTERN CONFERENCE – 2 Teams',
+    'road.mvp.name': 'MVP-Finale',
+    'road.mvp.east': 'EASTERN CONFERENCE – Finalist',
+    'road.mvp.west': 'WESTERN CONFERENCE – Finalist',
+    'road.champion': 'MVP Champion',
+
+    'more.title': 'Mehr als ein Turnier',
+    'more.lead':
+      'STAR Trading-Liga: Ein Wettbewerb, definiert durch Marktleistung und Wettkampfgeist.',
+    'more.line1': 'Du hast teilgenommen. Du hast dich vertreten. Du hast gehandelt.',
+    'more.line2':
+      'Egal, ob du das Finale erreicht oder in den frühen Runden ausgeschieden bist – jeder Teilnehmer war Teil von etwas Größerem.',
+
+    'footer.tagline':
+      'Strategie. Können. Team. STAR Trading-Liga: wo der Markt auf das Spielfeld trifft.',
+    'footer.signoff': 'Bleibt gespannt auf die nächste Saison.',
+  },
+
+  // Italiano — verbatim from the reference sheet.
+  IT: {
+    'hero.eyebrow': 'Lega di Trading STAR',
+    'hero.headline': ['La Stagione È Arrivata Al Suo Momento Finale'],
+    'hero.sub':
+      'Il buzzer è suonato. Il tabellone del torneo è completo. Da 30 squadre a 1: è stato determinato l’MVP definitivo del trading.',
+    'hero.chipLabel': 'Periodo del torneo',
+    'hero.chipValue': '1 giugno 2026 – 13 agosto 2026',
+    'hero.chipState': 'Concluso',
+
+    'champions.title': 'Scopri I Tuoi Campioni MVP',
+    'champions.placeholder': '[Insert Champion Team Name & Conference]',
+    'champions.body':
+      'La maggior parte delle squadre ha gareggiato. Hanno dominato la competizione. La squadra con il più alto tasso di profitto in tutte le 5 fasi della Lega di Trading STAR.',
+    'champions.winners': 'Vincitori',
+    'champions.profitRate': 'Tasso di Profitto:',
+    'champions.uid': 'UID:',
+
+    'tier.first.title': 'Vincitori Del Gran Premio',
+    'tier.first.meta': 'Top 2',
+    'tier.first.prizes': [
+      'Biglietti NBA',
+      'Set Regalo Basket',
+      'Maglia NBA Autografata',
+      'Premio in Denaro di 10.000 USD',
+    ],
+    'tier.second.title': 'Secondo Posto',
+    'tier.second.meta': 'Voucher NBA Store da 200 USD (4 persone)',
+    'tier.second.prizes': ['Maglia NBA o Scarpe da Basket NBA — scegli tu.'],
+    'tier.third.title': 'Terzo Posto',
+    'tier.third.meta': 'Voucher NBA Store da 150 USD (4 persone)',
+    'tier.third.prizes': ['Maglia NBA o Scarpe da Basket NBA — scegli tu.'],
+
+    'road.title': 'La Strada Verso La Finale',
+    'road.regular.name': 'Stagione Regolare',
+    'road.regular.east': 'CONFERENZA EST – 15 squadre',
+    'road.regular.west': 'CONFERENZA OVEST – 15 squadre',
+    'road.playoff.name': 'Playoff',
+    'road.playoff.east': 'CONFERENZA EST – 8 squadre',
+    'road.playoff.west': 'CONFERENZA OVEST – 8 squadre',
+    'road.quarter.name': 'Quarti di Finale',
+    'road.quarter.east': 'CONFERENZA EST – 4 squadre',
+    'road.quarter.west': 'CONFERENZA OVEST – 4 squadre',
+    'road.semi.name': 'Semifinali',
+    'road.semi.east': 'CONFERENZA EST – 2 squadre',
+    'road.semi.west': 'CONFERENZA OVEST – 2 squadre',
+    'road.mvp.name': 'Finale MVP',
+    'road.mvp.east': 'CONFERENZA EST – Finalista',
+    'road.mvp.west': 'CONFERENZA OVEST – Finalista',
+    'road.champion': 'Campione MVP',
+
+    'more.title': 'Più di un torneo',
+    'more.lead':
+      'Lega di Trading STAR: una competizione definita dalle performance di mercato e dallo spirito competitivo.',
+    'more.line1': 'Hai gareggiato. Hai rappresentato. Hai fatto trading.',
+    'more.line2':
+      'Che tu abbia raggiunto le finali o sia uscito nei turni iniziali, ogni partecipante ha fatto parte di qualcosa di più grande.',
+
+    'footer.tagline':
+      'Strategia. Abilità. Squadra. Lega di Trading STAR: dove il mercato incontra il campo.',
+    'footer.signoff': 'Rimanete sintonizzati per la prossima stagione.',
+  },
+
+  // Polski — verbatim from the reference sheet.
+  PL: {
+    'hero.eyebrow': 'STAR Liga Tradingowa',
+    'hero.headline': ['Sezon Osiągnął Swój Finałowy Moment'],
+    'hero.sub':
+      'Rozległ się końcowy sygnał. Drabinka turniejowa została zamknięta. Z 30 drużyn została 1: wyłoniono ostatecznego MVP tradingu.',
+    'hero.chipLabel': 'Okres turnieju',
+    'hero.chipValue': '1 czerwca 2026 – 13 sierpnia 2026',
+    'hero.chipState': 'Zakończono',
+
+    'champions.title': 'Poznaj Swoich Mistrzów MVP',
+    'champions.placeholder': '[Insert Champion Team Name & Conference]',
+    'champions.body':
+      'Większość drużyn rywalizowała. Zdominowali turniej. Drużyna z najwyższą stopą zysku we wszystkich 5 etapach STAR Trading League.',
+    'champions.winners': 'Zwycięzcy',
+    'champions.profitRate': 'Stopa Zysku:',
+    'champions.uid': 'UID:',
+
+    'tier.first.title': 'Zdobywcy Nagrody Głównej',
+    'tier.first.meta': 'Top 2',
+    'tier.first.prizes': [
+      'Bilety NBA',
+      'Zestaw Upominkowy Koszykarski',
+      'Koszulka NBA z Autografem',
+      'Nagroda Gotówkowa 10 000 USD',
+    ],
+    'tier.second.title': 'Drugie Miejsce',
+    'tier.second.meta': 'Bon NBA Store o wartości 200 USD (4 osoby)',
+    'tier.second.prizes': ['Koszulka NBA lub Buty Koszykarskie NBA — wybór należy do Ciebie.'],
+    'tier.third.title': 'Trzecie Miejsce',
+    'tier.third.meta': 'Bon NBA Store o wartości 150 USD (4 osoby)',
+    'tier.third.prizes': ['Koszulka NBA lub Buty Koszykarskie NBA — wybór należy do Ciebie.'],
+
+    'road.title': 'Droga Do Finału',
+    'road.regular.name': 'Sezon Regularny',
+    'road.regular.east': 'KONFERENCJA WSCHODNIA – 15 drużyn',
+    'road.regular.west': 'KONFERENCJA ZACHODNIA – 15 drużyn',
+    'road.playoff.name': 'Playoff',
+    'road.playoff.east': 'KONFERENCJA WSCHODNIA – 8 drużyn',
+    'road.playoff.west': 'KONFERENCJA ZACHODNIA – 8 drużyn',
+    'road.quarter.name': 'Ćwierćfinał',
+    'road.quarter.east': 'KONFERENCJA WSCHODNIA – 4 drużyny',
+    'road.quarter.west': 'KONFERENCJA ZACHODNIA – 4 drużyny',
+    'road.semi.name': 'Półfinał',
+    'road.semi.east': 'KONFERENCJA WSCHODNIA – 2 drużyny',
+    'road.semi.west': 'KONFERENCJA ZACHODNIA – 2 drużyny',
+    'road.mvp.name': 'Finał MVP',
+    'road.mvp.east': 'KONFERENCJA WSCHODNIA – Finalista',
+    'road.mvp.west': 'KONFERENCJA ZACHODNIA – Finalista',
+    'road.champion': 'Mistrz MVP',
+
+    'more.title': 'Więcej niż turniej',
+    'more.lead':
+      'STAR Liga Tradingowa: Zawody definiowane przez wyniki rynkowe i ducha rywalizacji.',
+    'more.line1': 'Rywalizowałeś. Reprezentowałeś. Handlowałeś.',
+    'more.line2':
+      'Niezależnie od tego, czy dotarłeś do finałów, czy odpadłeś we wczesnych rundach, każdy uczestnik był częścią czegoś większego.',
+
+    'footer.tagline':
+      'Strategia. Umiejętności. Drużyna. STAR Liga Tradingowa: gdzie rynek spotyka boisko.',
+    'footer.signoff': 'Bądźcie gotowi na kolejny sezon.',
+  },
+
+  // Nederlands — verbatim from the reference sheet.
+  NL: {
+    'hero.eyebrow': 'STAR Handelscompetitie',
+    'hero.headline': ['Het Seizoen Heeft Zijn Laatste Moment Bereikt'],
+    'hero.sub':
+      'De zoemer heeft geklonken. Het toernooischema is compleet. Van 30 teams naar 1: de ultieme trading-MVP is bepaald.',
+    'hero.chipLabel': 'Toernooiperiode',
+    'hero.chipValue': '1 juni 2026 – 13 augustus 2026',
+    'hero.chipState': 'Voltooid',
+
+    'champions.title': 'Maak Kennis Met Jouw MVP-Kampioenen',
+    'champions.placeholder': '[Insert Champion Team Name & Conference]',
+    'champions.body':
+      'De meeste teams deden mee. Zij domineerden de competitie. Het team met het hoogste winstpercentage over alle 5 fasen van de STAR Handelscompetitie.',
+    'champions.winners': 'Winnaars',
+    'champions.profitRate': 'Winstpercentage:',
+    'champions.uid': 'UID:',
+
+    'tier.first.title': 'Hoofdprijswinnaars',
+    'tier.first.meta': 'Top 2',
+    'tier.first.prizes': [
+      'NBA-tickets',
+      'Basketbalgeschenkset',
+      'Gesigneerd NBA-shirt',
+      'Contante Beloning van USD 10.000',
+    ],
+    'tier.second.title': 'Tweede Plaats',
+    'tier.second.meta': 'NBA Store Voucher ter waarde van USD 200 (4 personen)',
+    'tier.second.prizes': ['NBA-shirt of NBA-basketbalschoenen — jij kiest.'],
+    'tier.third.title': 'Derde Plaats',
+    'tier.third.meta': 'NBA Store Voucher ter waarde van USD 150 (4 personen)',
+    'tier.third.prizes': ['NBA-shirt of NBA-basketbalschoenen — jij kiest.'],
+
+    'road.title': 'De Weg Naar De Finale',
+    'road.regular.name': 'Regulier Seizoen',
+    'road.regular.east': 'EASTERN CONFERENCE – 15 teams',
+    'road.regular.west': 'WESTERN CONFERENCE – 15 teams',
+    'road.playoff.name': 'Playoffs',
+    'road.playoff.east': 'EASTERN CONFERENCE – 8 teams',
+    'road.playoff.west': 'WESTERN CONFERENCE – 8 teams',
+    'road.quarter.name': 'Kwartfinale',
+    'road.quarter.east': 'EASTERN CONFERENCE – 4 teams',
+    'road.quarter.west': 'WESTERN CONFERENCE – 4 teams',
+    'road.semi.name': 'Halve Finale',
+    'road.semi.east': 'EASTERN CONFERENCE – 2 teams',
+    'road.semi.west': 'WESTERN CONFERENCE – 2 teams',
+    'road.mvp.name': 'MVP Finale',
+    'road.mvp.east': 'EASTERN CONFERENCE – Finalist',
+    'road.mvp.west': 'WESTERN CONFERENCE – Finalist',
+    'road.champion': 'MVP-kampioen',
+
+    'more.title': 'Meer dan een toernooi',
+    'more.lead':
+      'STAR Handelscompetitie: Een competitie bepaald door marktprestaties en competitieve geest.',
+    'more.line1': 'Je hebt meegedaan. Je hebt jezelf vertegenwoordigd. Je hebt gehandeld.',
+    'more.line2':
+      'Of je nu de finale hebt gehaald of in de vroege rondes bent uitgevallen, elke deelnemer maakte deel uit van iets groters.',
+
+    'footer.tagline':
+      'Strategie. Vaardigheid. Team. STAR Handelscompetitie: waar de markt het veld ontmoet.',
+    'footer.signoff': 'Blijf op de hoogte voor het volgende seizoen.',
+  },
 }
