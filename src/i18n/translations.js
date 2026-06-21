@@ -76,7 +76,7 @@ export const translations = {
   CN: {
     'hero.eyebrow': 'STAR交易联赛',
     'hero.headline': ['赛季已进入最后时刻'],
-    'hero.sub': '哨声已响。排位已定。30队血战，1队登顶：终极交易MVP已然诞生',
+    'hero.sub': '哨声已响。排位已定。\n30队血战，1队登顶：\n终极交易MVP已然诞生',
     'hero.chipLabel': '赛事周期',
     'hero.chipValue': '2026年6月1日 – 2026年8月13日',
     'hero.chipState': '已结束',
@@ -84,7 +84,7 @@ export const translations = {
     'champions.title': '认识您的MVP冠军',
     'champions.placeholder': '[Insert Champion Team Name & Conference]',
     'champions.body':
-      '众队竞逐。他们傲视群雄。STAR交易联赛的5轮激战，他们以收益率笑到最后的交易MVP',
+      '众队竞逐。他们傲视群雄。\nSTAR交易联赛的5轮激战，他们以收益率笑到最后的交易MVP',
     'champions.winners': '获奖者',
     'champions.profitRate': '盈利率：',
     'champions.uid': 'UID：',

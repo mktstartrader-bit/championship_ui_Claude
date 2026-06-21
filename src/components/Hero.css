@@ -70,6 +70,16 @@
   display: block;
 }
 
+/* CN: smaller display type so the headline fits on a single line */
+html[lang='cn'] .hero__title {
+  font-size: clamp(1.5rem, 3.4vw, 3rem);
+}
+@media (min-width: 821px) {
+  html[lang='cn'] .hero__title {
+    white-space: nowrap;
+  }
+}
+
 /* Supporting content — bottom-right */
 .hero__content-col {
   display: flex;
@@ -85,6 +95,11 @@
   color: var(--text);
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
   max-width: 42ch;
+}
+/* CN: honour the explicit 3-line break in the copy */
+html[lang='cn'] .hero__sub {
+  white-space: pre-line;
+  max-width: none;
 }
 .hero__chip {
   display: inline-flex;

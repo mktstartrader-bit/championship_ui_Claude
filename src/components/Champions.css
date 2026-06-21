@@ -88,6 +88,14 @@
   color: var(--text-mute);
 }
 
+/* CN: honour the explicit line breaks in the champion copy */
+html[lang='cn'] .champions__placeholder {
+  white-space: nowrap;
+}
+html[lang='cn'] .champions__body {
+  white-space: pre-line;
+}
+
 /* ---- Podium ---- */
 .podium {
   list-style: none;
