@@ -432,6 +432,71 @@ export const translations = {
     'footer.signoff': 'Nantikan musim berikutnya.',
   },
 
+  // العربية — verbatim from the reference sheet. RTL: LanguageContext sets
+  // <html dir="rtl"> for AR. Brand/proper nouns (NBA, STARTRADER, STAR Trading
+  // League, MVP, UID) stay in Latin script; digits stay Western.
+  AR: {
+    'hero.eyebrow': 'STAR TRADING LEAGUE',
+    'hero.headline': ['وصل الدوري إلى لحظته الأخيرة'],
+    'hero.sub':
+      'دقت صافرة النهاية. واكتمل مشوار البطولة. من 30 فريقًا إلى فائز واحد: الـ MVP لهذا الدوري أصبح معروفًا.',
+    'hero.chipLabel': 'فترة البطولة',
+    'hero.chipValue': '1 يونيو 2026 – 13 أغسطس 2026',
+    'hero.chipState': 'انتهت',
+
+    'champions.title': 'أبطال الـ MVP لهذا الدوري',
+    'champions.placeholder': '[Insert Champion Team Name & Conference]',
+    'champions.body':
+      'من بداية الموسم حتى النهائيات، برز هذا الفريق بأداء استثنائي. صاحب أعلى معدل ربح عبر المراحل الخمس من STAR Trading League.',
+    'champions.winners': 'الفائزون',
+    'champions.profitRate': 'معدل الربح:',
+    'champions.uid': 'UID:',
+
+    'tier.first.title': 'الفائزون بالجائزة الكبرى',
+    'tier.first.meta': 'أفضل فريقين',
+    'tier.first.prizes': [
+      'تذاكر NBA',
+      'مجموعة هدايا كرة السلة',
+      'قميص NBA موقّع',
+      'مكافأة نقدية بقيمة 10,000 دولار أمريكي',
+    ],
+    'tier.second.title': 'المركز الثاني',
+    'tier.second.meta': 'قسيمة من NBA Store بقيمة 200 دولار أمريكي (4 فائزين)',
+    'tier.second.prizes': ['قميص NBA أو حذاء كرة سلة NBA — الخيار لك.'],
+    'tier.third.title': 'المركز الثالث',
+    'tier.third.meta': 'قسيمة من NBA Store بقيمة 150 دولار أمريكي (4 فائزين)',
+    'tier.third.prizes': ['قميص NBA أو حذاء كرة سلة NBA — الخيار لك.'],
+
+    'road.title': 'الطريق إلى النهائيات',
+    'road.regular.name': 'الموسم النظامي',
+    'road.regular.east': 'المؤتمر الشرقي · 15 فريقًا',
+    'road.regular.west': 'المؤتمر الغربي · 15 فريقًا',
+    'road.playoff.name': 'التصفيات',
+    'road.playoff.east': 'المؤتمر الشرقي · 8 فرق',
+    'road.playoff.west': 'المؤتمر الغربي · 8 فرق',
+    'road.quarter.name': 'ربع النهائي',
+    'road.quarter.east': 'المؤتمر الشرقي · 4 فرق',
+    'road.quarter.west': 'المؤتمر الغربي · 4 فرق',
+    'road.semi.name': 'نصف النهائي',
+    'road.semi.east': 'المؤتمر الشرقي · فريقان',
+    'road.semi.west': 'المؤتمر الغربي · فريقان',
+    'road.mvp.name': 'نهائي الـ MVP',
+    'road.mvp.east': 'المؤتمر الشرقي · المتأهل للنهائي',
+    'road.mvp.west': 'المؤتمر الغربي · المتأهل للنهائي',
+    'road.champion': 'بطل الـ MVP',
+
+    'more.title': 'لم تكن مجرد بطولة',
+    'more.lead':
+      'في STAR Trading League، حملت كل مرحلة تحديًا جديدًا، وكان لكل فريق دور في هذا الموسم.',
+    'more.line1': 'تنافست، مثّلت فريقك، وتداولت حتى النهاية.',
+    'more.line2':
+      'سواء وصلت إلى النهائيات أو توقّف مشوارك في المراحل الأولى، ساهم كل مشارك في صنع هذا الموسم.',
+
+    'footer.tagline':
+      'استراتيجية. مهارة. فريق. STAR Trading League: حيث يلتقي السوق بالملعب.',
+    'footer.signoff': 'ترقّبوا الموسم القادم.',
+  },
+
   // 한국어 — verbatim from the reference sheet.
   KR: {
     'hero.eyebrow': '스타 트레이딩 리그',
