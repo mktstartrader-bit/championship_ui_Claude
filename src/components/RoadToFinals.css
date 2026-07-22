@@ -312,7 +312,10 @@
     gap: 1rem;
   }
   .road__node {
-    position: static;
+    /* relative (not static) so it stays the positioning context for its
+       ping-ring and — on the champ node — the absolutely-placed trophy,
+       whose height:66% must resolve against the node, not the whole curve */
+    position: relative;
     transform: none;
     flex-shrink: 0;
   }
