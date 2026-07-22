@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react'
 import BrandMark from './objects/BrandMark'
-import LanguageSelector from './LanguageSelector'
 import './HudNav.css'
 
 /**
- * HudNav — STARTRADER logo (left) and a language selector (right).
- * Condenses on scroll.
+ * HudNav — STARTRADER logo (left). Condenses on scroll.
+ * (English-only build: the language selector is intentionally omitted.)
  *
  * @param {string} [logoSrc] - URL/path to the official STARTRADER logo SVG.
  */
@@ -34,10 +33,6 @@ export default function HudNav({ logoSrc }) {
             </span>
           )}
         </a>
-
-        <div className="hud__right">
-          <LanguageSelector />
-        </div>
       </div>
     </header>
   )

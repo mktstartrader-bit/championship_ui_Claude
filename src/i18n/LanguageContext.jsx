@@ -7,20 +7,10 @@ const LanguageContext = createContext(null)
 const RTL = new Set(['AR'])
 
 export function LanguageProvider({ children }) {
-  const [lang, setLang] = useState(() => {
-    try {
-      return localStorage.getItem('lang') || 'EN'
-    } catch {
-      return 'EN'
-    }
-  })
+  // English-only build: language is fixed to EN (no persistence, no switching).
+  const [lang, setLang] = useState('EN')
 
   useEffect(() => {
-    try {
-      localStorage.setItem('lang', lang)
-    } catch {
-      /* ignore */
-    }
     document.documentElement.lang = lang.toLowerCase()
     document.documentElement.dir = RTL.has(lang) ? 'rtl' : 'ltr'
   }, [lang])
