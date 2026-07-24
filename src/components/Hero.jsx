@@ -2,6 +2,10 @@ import { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import useReducedMotion from '../hooks/useReducedMotion'
 import { useLang } from '../i18n/LanguageContext'
+// `@hero` is aliased per edition (see vite.config.js): NBA builds get the
+// artwork with the NBA · STARTRADER lockup, generic builds the same render
+// with the NBA marks removed. Only the selected image is emitted.
+import HERO_IMG from '@hero'
 import './Hero.css'
 
 const FIREWORKS = [
@@ -59,7 +63,7 @@ export default function Hero() {
       {/* Full-bleed banner image */}
       <img
         className="hero__bgimg"
-        src="/hero-champions.jpg"
+        src={HERO_IMG}
         alt="STAR Trading League"
         onError={() => setPosterOk(false)}
       />

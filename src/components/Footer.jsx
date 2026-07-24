@@ -1,4 +1,5 @@
 import { useLang } from '../i18n/LanguageContext'
+import logoSrc from '../assets/startrader-logo.svg'
 import './Footer.css'
 
 export default function Footer() {
@@ -11,7 +12,7 @@ export default function Footer() {
         <p className="footer__signoff">{t('footer.signoff')}</p>
 
         <div className="footer__baseline">
-          <img className="footer__logo" src="/startrader-logo.svg" alt="STARTRADER" />
+          <img className="footer__logo" src={logoSrc} alt="STARTRADER" />
         </div>
 
         <div className="footer__legal">

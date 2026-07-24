@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import useReducedMotion from '../hooks/useReducedMotion'
 import { useLang } from '../i18n/LanguageContext'
+import champTrophy from '../assets/champion-trophy.png'
 import './RoadToFinals.css'
 
 /**
@@ -160,7 +161,7 @@ export default function RoadToFinals() {
           >
             <span className="road__node road__node--champ" aria-hidden="true">
               <span className="road__node-ring" />
-              <img className="road__champ-trophy" src="/champion-trophy.png" alt="" />
+              <img className="road__champ-trophy" src={champTrophy} alt="" />
               {!reduced && (
                 <span className="road__champ-sparks">
                   {Array.from({ length: 10 }, (_, n) => (

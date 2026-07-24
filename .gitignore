@@ -1,5 +1,7 @@
 node_modules
 dist
+dist-regions
+*.zip
 dist-ssr
 *.local
 .DS_Store

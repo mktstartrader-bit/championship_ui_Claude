@@ -5,6 +5,7 @@ import RoadToFinals from './components/RoadToFinals'
 import MoreThanTournament from './components/MoreThanTournament'
 import Footer from './components/Footer'
 import HudFrame from './components/effects/HudFrame'
+import logoSrc from './assets/startrader-logo.svg'
 
 export default function App() {
   return (
@@ -19,7 +20,7 @@ export default function App() {
       <HudFrame />
 
       {/* Official STARTRADER logo */}
-      <HudNav logoSrc="/startrader-logo.svg" />
+      <HudNav logoSrc={logoSrc} />
 
       <main id="main">
         <Hero />
