@@ -6,6 +6,9 @@ import react from '@vitejs/plugin-react'
 // Defaults keep `npm run dev` / plain `npm run build` working (EN, NBA).
 const LANG = process.env.VITE_LANG || 'EN'
 const EDITION = process.env.VITE_EDITION || 'nba'
+// STATIC build: entrance animations render at their final visible state on
+// first paint (no scroll-reveal), so a no-JS prerender snapshot is complete.
+const STATIC = process.env.VITE_STATIC === '1'
 const HTMLLANG = process.env.VITE_HTMLLANG || 'en'
 const DESC =
   process.env.VITE_DESC ||
@@ -50,5 +53,6 @@ export default defineConfig({
     // Boolean literal so `__IS_NBA__ ? a : b` constant-folds and the unused
     // hero image is dropped from the bundle (no NBA asset in generic builds).
     __IS_NBA__: JSON.stringify(EDITION === 'nba'),
+    __STATIC__: JSON.stringify(STATIC),
   },
 })

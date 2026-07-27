@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import CursorFireworks from './effects/CursorFireworks'
 import useReducedMotion from '../hooks/useReducedMotion'
 import { useLang } from '../i18n/LanguageContext'
+import { STATIC } from '../buildConfig'
 import './MoreThanTournament.css'
 
 /**
@@ -13,7 +14,7 @@ export default function MoreThanTournament() {
   const { t } = useLang()
 
   const fade = (i = 0) => ({
-    initial: { opacity: 0, y: reduced ? 0 : 16 },
+    initial: STATIC ? false : { opacity: 0, y: reduced ? 0 : 16 },
     whileInView: { opacity: 1, y: 0 },
     viewport: { once: true, amount: 0.5 },
     transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: reduced ? 0 : i * 0.1 },

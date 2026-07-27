@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import Medal from './objects/Medal'
 import useReducedMotion from '../hooks/useReducedMotion'
 import { useLang } from '../i18n/LanguageContext'
+import { STATIC } from '../buildConfig'
 import './Champions.css'
 
 // Tier structure + winner UIDs. Title / meta / prizes are pulled from the
@@ -95,7 +96,7 @@ function PrizeCard({ tier, reduced }) {
   return (
     <motion.li
       className={`podium__col ${tier.placeClass}`}
-      initial={{ opacity: 0, y: reduced ? 0 : 40 }}
+      initial={STATIC ? false : { opacity: 0, y: reduced ? 0 : 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.4 }}
       transition={{
@@ -184,7 +185,7 @@ export default function Champions() {
       <div className="container">
         <motion.div
           className="champions__intro"
-          initial={{ opacity: 0, y: reduced ? 0 : 16 }}
+          initial={STATIC ? false : { opacity: 0, y: reduced ? 0 : 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}

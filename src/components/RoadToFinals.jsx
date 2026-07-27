@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import useReducedMotion from '../hooks/useReducedMotion'
 import { useLang } from '../i18n/LanguageContext'
+import { STATIC } from '../buildConfig'
 import champTrophy from '../assets/champion-trophy.png'
 import './RoadToFinals.css'
 
@@ -47,7 +48,7 @@ export default function RoadToFinals() {
     : { pathLength: 1, opacity: 1 }
 
   const nodePop = (i) => ({
-    initial: { scale: reduced ? 1 : 0, opacity: 0 },
+    initial: STATIC ? false : { scale: reduced ? 1 : 0, opacity: 0 },
     whileInView: { scale: 1, opacity: 1 },
     viewport: { once: true, amount: 0.4 },
     transition: { duration: 0.5, ease: [0.34, 1.56, 0.64, 1], delay: reduced ? 0 : 0.4 + i * 0.22 },
@@ -58,7 +59,7 @@ export default function RoadToFinals() {
       <div className="container">
         <motion.div
           className="road__intro"
-          initial={{ opacity: 0, y: reduced ? 0 : 16 }}
+          initial={STATIC ? false : { opacity: 0, y: reduced ? 0 : 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.6 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
@@ -108,7 +109,7 @@ export default function RoadToFinals() {
               strokeLinecap="round"
               opacity="0.35"
               style={{ filter: 'blur(7px)' }}
-              initial={{ pathLength: reduced ? 1 : 0 }}
+              initial={STATIC ? false : { pathLength: reduced ? 1 : 0 }}
               whileInView={draw}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: reduced ? 0 : 2, ease: 'easeInOut' }}
@@ -119,7 +120,7 @@ export default function RoadToFinals() {
               stroke="url(#roadGrad)"
               strokeWidth="3"
               strokeLinecap="round"
-              initial={{ pathLength: reduced ? 1 : 0 }}
+              initial={STATIC ? false : { pathLength: reduced ? 1 : 0 }}
               whileInView={draw}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: reduced ? 0 : 2, ease: 'easeInOut' }}

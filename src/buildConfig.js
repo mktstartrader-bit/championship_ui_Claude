@@ -12,3 +12,6 @@
 export const LANG = String(__LANG__ || 'EN').toUpperCase()
 export const EDITION = String(__EDITION__ || 'nba').toLowerCase()
 export const IS_NBA = __IS_NBA__
+// STATIC export: when true, components skip their hidden `initial` state so
+// content renders visible on first paint (for the no-JS prerendered build).
+export const STATIC = __STATIC__

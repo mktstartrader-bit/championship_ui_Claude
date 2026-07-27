@@ -2,6 +2,7 @@ import { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import useReducedMotion from '../hooks/useReducedMotion'
 import { useLang } from '../i18n/LanguageContext'
+import { STATIC } from '../buildConfig'
 // `@hero` is aliased per edition (see vite.config.js): NBA builds get the
 // artwork with the NBA · STARTRADER lockup, generic builds the same render
 // with the NBA marks removed. Only the selected image is emitted.
@@ -48,7 +49,7 @@ export default function Hero() {
 
   const ease = [0.22, 1, 0.36, 1]
   const rise = (delay = 0) => ({
-    initial: { opacity: 0, y: reduced ? 0 : 20 },
+    initial: STATIC ? false : { opacity: 0, y: reduced ? 0 : 20 },
     animate: { opacity: 1, y: 0 },
     transition: { duration: 0.7, ease, delay: reduced ? 0 : delay },
   })
