@@ -9,9 +9,9 @@ const EDITION = process.env.VITE_EDITION || 'nba'
 // STATIC build: entrance animations render at their final visible state on
 // first paint (no scroll-reveal), so a no-JS prerender snapshot is complete.
 const STATIC = process.env.VITE_STATIC === '1'
-// URLs the EN/AR language switcher links to (per environment).
-const URL_EN = process.env.VITE_URL_EN || '#'
-const URL_AR = process.env.VITE_URL_AR || '#'
+// Language switcher options as a JSON array of {code,label,url}. Empty = no
+// switcher (single-language page). The active option is matched by LANG.
+const SWITCH = process.env.VITE_SWITCH || '[]'
 const HTMLLANG = process.env.VITE_HTMLLANG || 'en'
 const DESC =
   process.env.VITE_DESC ||
@@ -57,7 +57,6 @@ export default defineConfig({
     // hero image is dropped from the bundle (no NBA asset in generic builds).
     __IS_NBA__: JSON.stringify(EDITION === 'nba'),
     __STATIC__: JSON.stringify(STATIC),
-    __URL_EN__: JSON.stringify(URL_EN),
-    __URL_AR__: JSON.stringify(URL_AR),
+    __SWITCH__: JSON.stringify(SWITCH),
   },
 })

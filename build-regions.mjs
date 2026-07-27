@@ -14,6 +14,22 @@ const htmlLang = {
   TW: 'zh-Hant', FR: 'fr', MY: 'ms', VN: 'vi', TH: 'th',
 }
 
+// Language switcher groups (production URLs). Only domains that publish more
+// than one language get a switcher; everyone else is single-language (none).
+const SW_MAIN = [
+  { code: 'EN', label: 'EN', url: 'https://www.startrader.com/star-trading-league-championship/' },
+  { code: 'AR', label: 'العربية', url: 'https://www.startrader.com/ar/star-trading-league-championship/' },
+]
+const SW_APAC = [
+  { code: 'EN', label: 'EN', url: 'https://www.startraderapac.com/star-trading-league-championship/' },
+  { code: 'CN', label: '简体', url: 'https://www.startraderapac.com/scn/star-trading-league-championship/' },
+  { code: 'TW', label: '繁體', url: 'https://www.startraderapac.com/tw/star-trading-league-championship/' },
+]
+const switchFor = (slug) =>
+  slug.startsWith('01-startrader-com') ? SW_MAIN
+  : slug.startsWith('04-apac') ? SW_APAC
+  : []
+
 // Per Aleksandar: only Global (EN/Canada) and Arabic keep NBA logo + content.
 // `name`/`langLabel` are display strings for the review hub only.
 const regions = [
@@ -46,6 +62,8 @@ for (const r of regions) {
     VITE_EDITION: r.edition,
     VITE_HTMLLANG: htmlLang[r.lang] || 'en',
     VITE_DESC: desc,
+    VITE_STATIC: '1',
+    VITE_SWITCH: JSON.stringify(switchFor(r.slug)),
   }
   console.log(`\n▶ ${r.slug}  ${r.lang}/${r.edition}  → ${r.url}`)
   execSync(`npx vite build --outDir ${out} --emptyOutDir`, { stdio: 'inherit', env })

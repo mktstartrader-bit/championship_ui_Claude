@@ -15,6 +15,5 @@ export const IS_NBA = __IS_NBA__
 // STATIC export: when true, components skip their hidden `initial` state so
 // content renders visible on first paint (for the no-JS prerendered build).
 export const STATIC = __STATIC__
-// Target URLs for the EN/AR language switcher.
-export const URL_EN = __URL_EN__
-export const URL_AR = __URL_AR__
+// Language switcher options [{code,label,url}]. Empty on single-language pages.
+export const SWITCH = JSON.parse(__SWITCH__)
