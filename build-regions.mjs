@@ -12,6 +12,7 @@ const { translations } = await import('./src/i18n/translations.js')
 const htmlLang = {
   EN: 'en', AR: 'ar', KR: 'ko', JP: 'ja', CN: 'zh-Hans',
   TW: 'zh-Hant', FR: 'fr', MY: 'ms', VN: 'vi', TH: 'th',
+  DE: 'de', ES: 'es', IT: 'it', PL: 'pl', PT: 'pt', NL: 'nl', IDN: 'id',
 }
 
 // Language switcher groups (production URLs). Only domains that publish more
@@ -46,6 +47,14 @@ const regions = [
   { slug: '08-in-en',              lang: 'EN', edition: 'generic', name: 'startrader.com /in',       langLabel: 'EN (India)',  url: 'https://www.startrader.com/in/star-trading-league/' },
   { slug: '09-th',                 lang: 'TH', edition: 'generic', name: 'startrader.com /th',       langLabel: 'TH',          url: 'https://www.startrader.com/th/star-trading-league/' },
   { slug: '10-global-en',          lang: 'EN', edition: 'nba',     name: 'startrader.com /global',   langLabel: 'EN (Canada)', url: 'https://www.startrader.com/global/star-trading-league/' },
+  // Additional supported languages (no domain assigned yet in the brief).
+  { slug: '11-de',                 lang: 'DE',  edition: 'generic', name: 'German (Deutsch)',       langLabel: 'DE',  url: '— target domain TBD —' },
+  { slug: '12-es',                 lang: 'ES',  edition: 'generic', name: 'Spanish (Español)',      langLabel: 'ES',  url: '— target domain TBD —' },
+  { slug: '13-it',                 lang: 'IT',  edition: 'generic', name: 'Italian (Italiano)',     langLabel: 'IT',  url: '— target domain TBD —' },
+  { slug: '14-pl',                 lang: 'PL',  edition: 'generic', name: 'Polish (Polski)',        langLabel: 'PL',  url: '— target domain TBD —' },
+  { slug: '15-pt',                 lang: 'PT',  edition: 'generic', name: 'Portuguese (Português)', langLabel: 'PT',  url: '— target domain TBD —' },
+  { slug: '16-nl',                 lang: 'NL',  edition: 'generic', name: 'Dutch (Nederlands)',     langLabel: 'NL',  url: '— target domain TBD —' },
+  { slug: '17-idn',                lang: 'IDN', edition: 'generic', name: 'Indonesian (Bahasa)',    langLabel: 'IDN', url: '— target domain TBD —' },
 ]
 
 rmSync('dist-regions', { recursive: true, force: true })
