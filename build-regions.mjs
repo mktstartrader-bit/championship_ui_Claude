@@ -8,6 +8,12 @@ import { rmSync, mkdirSync, writeFileSync } from 'node:fs'
 
 const { translations } = await import('./src/i18n/translations.js')
 
+// OUTDIR: where builds land. PREVIEW: build for the live review deployment —
+// switchers link to sibling preview paths (../<slug>/) and animations stay on
+// (SPA, not the no-JS static export). Default = production static export.
+const OUTDIR = process.env.OUTDIR || 'dist-regions'
+const PREVIEW = process.env.PREVIEW === '1'
+
 // BCP-47 tags for <html lang>. SCN (Simplified Chinese) maps to the CN dict.
 const htmlLang = {
   EN: 'en', AR: 'ar', KR: 'ko', JP: 'ja', CN: 'zh-Hans',
@@ -17,15 +23,26 @@ const htmlLang = {
 
 // Language switcher groups (production URLs). Only domains that publish more
 // than one language get a switcher; everyone else is single-language (none).
-const SW_MAIN = [
-  { code: 'EN', label: 'EN', url: 'https://www.startrader.com/star-trading-league-championship/' },
-  { code: 'AR', label: 'العربية', url: 'https://www.startrader.com/ar/star-trading-league-championship/' },
-]
-const SW_APAC = [
-  { code: 'EN', label: 'EN', url: 'https://www.startraderapac.com/star-trading-league-championship/' },
-  { code: 'CN', label: '简体', url: 'https://www.startraderapac.com/scn/star-trading-league-championship/' },
-  { code: 'TW', label: '繁體', url: 'https://www.startraderapac.com/tw/star-trading-league-championship/' },
-]
+const SW_MAIN = PREVIEW
+  ? [
+      { code: 'EN', label: 'EN', url: '../01-startrader-com-en/' },
+      { code: 'AR', label: 'العربية', url: '../01-startrader-com-ar/' },
+    ]
+  : [
+      { code: 'EN', label: 'EN', url: 'https://www.startrader.com/star-trading-league-championship/' },
+      { code: 'AR', label: 'العربية', url: 'https://www.startrader.com/ar/star-trading-league-championship/' },
+    ]
+const SW_APAC = PREVIEW
+  ? [
+      { code: 'EN', label: 'EN', url: '../04-apac-en/' },
+      { code: 'CN', label: '简体', url: '../04-apac-scn/' },
+      { code: 'TW', label: '繁體', url: '../04-apac-tw/' },
+    ]
+  : [
+      { code: 'EN', label: 'EN', url: 'https://www.startraderapac.com/star-trading-league-championship/' },
+      { code: 'CN', label: '简体', url: 'https://www.startraderapac.com/scn/star-trading-league-championship/' },
+      { code: 'TW', label: '繁體', url: 'https://www.startraderapac.com/tw/star-trading-league-championship/' },
+    ]
 const switchFor = (slug) =>
   slug.startsWith('01-startrader-com') ? SW_MAIN
   : slug.startsWith('04-apac') ? SW_APAC
@@ -57,21 +74,21 @@ const regions = [
   { slug: '17-idn',                lang: 'IDN', edition: 'generic', name: 'Indonesian (Bahasa)',    langLabel: 'IDN', url: '— target domain TBD —' },
 ]
 
-rmSync('dist-regions', { recursive: true, force: true })
-mkdirSync('dist-regions', { recursive: true })
+rmSync(OUTDIR, { recursive: true, force: true })
+mkdirSync(OUTDIR, { recursive: true })
 
 const manifest = ['folder\tlanguage\tedition\ttarget URL', '']
 for (const r of regions) {
   const dict = translations[r.lang] || translations.EN
   const desc = dict['more.lead'] || translations.EN['more.lead']
-  const out = `dist-regions/${r.slug}`
+  const out = `${OUTDIR}/${r.slug}`
   const env = {
     ...process.env,
     VITE_LANG: r.lang,
     VITE_EDITION: r.edition,
     VITE_HTMLLANG: htmlLang[r.lang] || 'en',
     VITE_DESC: desc,
-    VITE_STATIC: '1',
+    VITE_STATIC: PREVIEW ? '0' : '1',
     VITE_SWITCH: JSON.stringify(switchFor(r.slug)),
   }
   console.log(`\n▶ ${r.slug}  ${r.lang}/${r.edition}  → ${r.url}`)
@@ -79,7 +96,7 @@ for (const r of regions) {
   manifest.push(`${r.slug}\t${r.lang}\t${r.edition}\t${r.url}`)
 }
 
-writeFileSync('dist-regions/MANIFEST.txt', manifest.join('\n') + '\n')
+writeFileSync(`${OUTDIR}/MANIFEST.txt`, manifest.join('\n') + '\n')
 
 // Review hub (dist-regions/index.html) — a card grid linking to each build.
 const cards = regions
@@ -141,6 +158,6 @@ ${cards}
   </body>
 </html>
 `
-writeFileSync('dist-regions/index.html', hub)
+writeFileSync(`${OUTDIR}/index.html`, hub)
 
-console.log('\n✓ All regional builds written to dist-regions/ (+ index.html hub, MANIFEST.txt)')
+console.log(`\n✓ All regional builds written to ${OUTDIR}/ (+ index.html hub, MANIFEST.txt)`)
